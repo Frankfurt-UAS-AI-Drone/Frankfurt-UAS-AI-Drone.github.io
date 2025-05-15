@@ -1,0 +1,24 @@
+base_url = "https://Frankfurt-UAS-AI-Drone.github.io"
+title = "Masterprojekt: Drohnen mit künstlicher Intelligenz"
+description = "Team 'Bananastalker'"
+build_search_index = true
+compile_sass = true
+taxonomies = [{ name = "tags" }]
+theme = "apollo"
+
+[markdown]
+highlight_code = true
+
+[extra]
+theme = "toggle"                    
+repo_url = "https://github.com/Frankfurt-UAS-AI-Drone/Frankfurt-UAS-AI-Drone.github.io"
+
+menu = [
+    { name = "/drone", url = "/drone", weight = 1 },
+    { name = "/raspberrypi", url = "/raspberrypi", weight = 2 },
+    { name = "/application", url = "/application", weight = 3 },
+]
+
+socials = [
+    { name = "github", url = "https://github.com/Frankfurt-UAS-AI-Drone", icon = "github" },
+]
