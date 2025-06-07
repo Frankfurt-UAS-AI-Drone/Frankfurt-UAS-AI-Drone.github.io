@@ -7,7 +7,7 @@ This section details the hardware setup utilized in our project. It covers the s
 
 Due to current German aviation regulations, our drone must not exceed a total weight of 250 grams. This threshold allows operation without formal registration or special permits, significantly simplifying compliance while still enabling a fully functional and capable system within strict weight constraints.
 
-# Hardware
+# Hardware Components
 
 - Frame: Volador II VX5 FPV Freestyle T700 Frame Kit-Black
     + The frame serves as the structural foundation of the drone, providing mounting points for all essential components such as motors, flight controller, battery, and sensors. It must be both lightweight and durable to meet the strict 250 g weight limit while ensuring mechanical stability during flight. <br/>
@@ -62,3 +62,5 @@ Due to current German aviation regulations, our drone must not exceed a total we
 
 - Smoke Stopper: TBS Smoke Stopper
     + To protect our electronic components during initial power-up and testing, we used the TBS Smoke Stopper. This device acts as an in-line fuse and current limiter, helping to prevent damage caused by short circuits or wiring mistakes.
+
+This results in a current total drone weight of approximately <???>. The overall cost of the components is at <???>€.
