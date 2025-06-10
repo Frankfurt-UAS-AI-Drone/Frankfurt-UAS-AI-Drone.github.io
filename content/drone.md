@@ -1,6 +1,6 @@
 +++
 title = "The Drone" 
-date = "2025-05-15" 
+date = "2025-05-15"
 +++
 
 This section details the hardware setup utilized in our project. It covers the selected components, their specifications, interconnections, and the rationale behind each design choice to ensure optimal performance and compatibility.
@@ -35,6 +35,10 @@ Due to current German aviation regulations, our drone must not exceed a total we
         - We use these two cameras in our project. The first camera is dedicated to capturing and transmitting live video feed to the pilot’s goggles, while the second camera is used exclusively for the AI application running on the Raspberry Pi.</br>
         - The Caddx Ratel PRO MN01 - 4000B weighs approximately 9.5 g, while the Raspberry Pi Camera RB-Camera_JT-V2-120 has a weight of about 4 g.
 
+- GPS modul: ``
+    + We have integrated a GPS module into the system, intended to support the AI application. This enables autonomous flight capabilities, allowing the drone to navigate from point A to point B without manual control.
+    + weight??? 
+
 - Single board computer: `Raspberry Pi Zero WH PI3G`
     + The single board computer is used as the computing platform for our AI application. Details about its role and the software implementation will be explained further in the software section of this documentation.</br>
     + weight?
@@ -46,7 +50,7 @@ Due to current German aviation regulations, our drone must not exceed a total we
     + ???
 
 - Batteries:
-    + heavy: `R-LINE Tattu 95C - 750mA`h`</br>
+    + heavy: `R-LINE Tattu 95C - 750mAh`</br>
     + light: `Gaoneng LiPo Akku 4S 650mAh 15.2V`</br>
         - Both batteries can be used interchangeably to power either the drone or the controller.</br>
         - The R-LINE Tattu 95C 750mAh battery has a net weight of approximately 82 g (±10), while the Gaoneng LiPo Akku 4S 650mAh 15.2V battery weighs around 70 g (±3).
@@ -66,3 +70,26 @@ Due to current German aviation regulations, our drone must not exceed a total we
 This results in a current total drone weight of approximately `<???>`. The overall cost of the components is at `<???>€`.
 
 # Drone Construction Overview
+
+- Flight Controller:
+    + To connect the propeller motors to the flight controller, the propeller motors wires were soldered directly to the flight controller. The has specific solder pads for this purpose, making it easy to attach the motor wires directly to the board. The motor mapping - defining which motor corresponds to which output - an be configured either in Betaflight or conveniently through the SpeedyBee app on a smartphone. In addition to the motors, it was also necessary to solder a power cable and a capacitor to the flight controller. Both components share the same solder pads, so they had to be carefully connected to ensure proper power delivery.
+
+    + ![propeller motors soldering plan](./images/propellerMotorsSolderingPlan.jpg)
+
+- Video Transmitter:
+    + To connect the video transmitter to the flight controller, four cables were used: black, red, white, and yellow.
+        + The black cable connects the GND pad on the video transmitter to a GND pad on the flight controller, ensuring a common ground.
+        + The red cable supplies power by connecting the 5V output on the flight controller to the 5V input on the video transmitter. This means the flight controller also functions as a power supply for the VTX, eliminating the need for a separate power source.
+        + The white cable connects the IRC pad (for control commands) on the video transmitter to the T3 pad on the flight controller. This allows the flight controller to send configuration commands to the VTX, such as changing channels or power levels.
+        + The yellow cable connects the VTX pad on the flight controller to the video input pad on the video transmitter. This carries the video signal from the onboard camera, which is then transmitted to the FPV goggles.
+
+    + ![flight controller and video transmitter soldering plan](./images/flightControllerVideoTransmitterSolderingPlan.jpg)
+
+Camera `Caddx Ratel PRO MN01 - 4000B`:
+    + ![Camera soldering plan]()
+
++ ELRS Receiver:
+    + ![ELRS receiver soldering plan](./images/ELRSReceiverSolderingPlan.jpg)
+
+- GPS modul:
+    + ![GPS modul soldering plan](./images/GPSModulSolderingPlan.jpg)
