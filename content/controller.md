@@ -1,5 +1,6 @@
 +++
 title = "Drone Controller"
+date = "2025-06-16"
 +++
 
 The following section covers all aspects related to the configuration of the controller used to fly the drone. This includes setting up input channels, assigning switches, and adjusting flight modes to ensure full manual control and reliable communication with the drone. As mentioned in the hardware section, we used the `Radiomaster Boxer ELRS GRYM2` as a controller.
