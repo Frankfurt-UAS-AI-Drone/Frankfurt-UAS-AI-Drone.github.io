@@ -16,6 +16,7 @@ When the controller is powered on, it may display the following warnings:
 
 ## Channels
 ### Channel Mappings
+Channel mapping of a controller refers to the way specific control inputs (like stick movements or switch toggles) are assigned to output channels that are sent to the flight controller or receiver. Each channel carries a particular function and channel mapping determines which input controls which channel. 
 There are two common channel mapping schemes for RC controllers: AETR and TAER. We chose AETR, as this is the default configuration in Betaflight (AETR1234).
 AETR stands for Aileron (A), Elevator (E), Throttle (T), and Rudder (R), corresponding to the basic control axes of the drone.
 
