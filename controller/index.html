@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" class="dark light">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https:&#x2F;&#x2F;Frankfurt-UAS-AI-Drone.github.io">
+
+    
+
+    
+    
+    
+        <title>
+            
+                Drone Controller
+            
+        </title>
+
+        
+            <meta property="og:title"
+                  content="Drone Controller" />
+        
+    
+
+    
+        
+            <meta property="og:description" content="Team &#x27;Bananastalker&#x27;" />
+        
+    
+
+    
+        
+            <meta name="description" content="Team &#x27;Bananastalker&#x27;" />
+        
+    
+
+    
+    
+
+    
+    
+        <link href=https://Frankfurt-UAS-AI-Drone.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+    <link rel="alternate"
+          type="application/atom+xml"
+          title="Masterprojekt: Drohnen mit künstlicher Intelligenz"
+          href="https://Frankfurt-UAS-AI-Drone.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://Frankfurt-UAS-AI-Drone.github.io/theme/light.css" />
+        <link id="darkModeStyle"
+              rel="stylesheet"
+              type="text/css"
+              href="https://Frankfurt-UAS-AI-Drone.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+
+    
+        <script src=https://Frankfurt-UAS-AI-Drone.github.io/js/themetoggle.js></script>
+
+        
+            <script>setTheme(getSavedTheme());</script>
+        
+    
+
+
+    <link rel="stylesheet"
+          type="text/css"
+          media="screen"
+          href="https://Frankfurt-UAS-AI-Drone.github.io/main.css" />
+
+    
+
+    <script defer
+                    src="https://Frankfurt-UAS-AI-Drone.github.io/search_index.en.js?h=1ca0e720305a0d74f573"></script>
+        <script defer
+                src="https://Frankfurt-UAS-AI-Drone.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script></head>
+
+
+    <body>
+        <div class="content">
+            <header>
+    <div class="main">
+        
+            <a href=https:&#x2F;&#x2F;Frankfurt-UAS-AI-Drone.github.io>Masterprojekt: Drohnen mit künstlicher Intelligenz</a>
+        
+
+
+        <div class="socials">
+            
+                <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;Frankfurt-UAS-AI-Drone" class="social">
+                    <img alt="github"
+                         src="https://Frankfurt-UAS-AI-Drone.github.io/icons/social/github.svg">
+                </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/drone style="margin-left: 0.25em">&#x2F;drone</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/raspberrypi style="margin-left: 0.25em">&#x2F;raspberrypi</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/application style="margin-left: 0.25em">&#x2F;application</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/about style="margin-left: 0.25em">&#x2F;about</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/controller style="margin-left: 0.25em">&#x2F;controller</a>
+        
+
+        
+            <button id="search-button"
+                    class="search-button"
+                    title="$SHORTCUT to open search">
+                <img src="https://Frankfurt-UAS-AI-Drone.github.io/icons/search.svg"
+                     alt="Search"
+                     class="search-icon">
+            </button>
+
+            <div id="searchModal"
+                 class="search-modal js"
+                 role="dialog"
+                 aria-labelledby="modalTitle">
+                <div id="modal-content">
+                    <h1 id="modalTitle" class="page-header">Search</h1>
+                    <div id="searchBar">
+                        <input id="searchInput"
+                               role="combobox"
+                               autocomplete="off"
+                               spellcheck="false"
+                               aria-expanded="false"
+                               aria-controls="results-container"
+                               placeholder="Search..." />
+                        <button id="clear-search" class="clear-button" title="Clear search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="results-container">
+                        <div id="results-info">
+                            <span id="zero_results" style="display: none;">No results</span>
+                            <span id="one_result" style="display: none;">1 result</span>
+                            <span id="many_results" style="display: none;">$NUMBER results</span>
+                        </div>
+                        <div id="results" role="listbox"></div>
+                    </div>
+                </div>
+            </div>
+        
+
+        
+            <a id="dark-mode-toggle"
+               onclick="toggleTheme(); event.preventDefault();"
+               href="#">
+                <img src="https://Frankfurt-UAS-AI-Drone.github.io/icons/sun.svg"
+                     id="sun-icon"
+                     style="filter: invert(1)"
+                     alt="Light" />
+                <img src=https://Frankfurt-UAS-AI-Drone.github.io/icons/moon.svg id="moon-icon" alt="Dark" />
+            </a>
+
+            <!-- Inititialize the theme toggle icons -->
+            <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+            
+            
+    
+    <main>
+        <article>
+            <div class="title">
+                
+                
+    <div class="page-header">
+        Drone Controller<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2025-06-16</time>
+                    
+
+                    
+
+                    
+
+                    :: 802 Words
+
+                    
+                    
+
+                    
+                    
+
+                    
+
+                </div>
+            </div>
+
+            
+
+            
+            
+
+            <section class="body">
+                <p>The following section covers all aspects related to the configuration of the controller used to fly the drone. This includes setting up input channels, assigning switches, and adjusting flight modes to ensure full manual control and reliable communication with the drone. As mentioned in the hardware section, we used the <code>Radiomaster Boxer ELRS GRYM2</code> as a controller.</p>
+<h1 id="controller">Controller</h1>
+<h2 id="startup-warnings">Startup Warnings</h2>
+<p>When the controller is powered on, it may display the following warnings:</p>
+<ul>
+<li>Throttle Warning: Triggered if the throttle stick (left stick) is not in the lowest position when turned on.</li>
+<li>Switch Warning:   Appears when one or more switches are not in their default positions.</li>
+<li>Alarms Warning:   Shown if the sound mode is set to mute, which may prevent important audio alerts.</li>
+<li>SD Card Warning:  Displayed if the SD card's content version does not match the controller’s firmware version. If you are facing issues regarding the SD Card Warning, please have a look at this <a href="https://oscarliang.com/fix-sd-card-warning-opentx/">fix</a></li>
+</ul>
+<h2 id="channels">Channels</h2>
+<h3 id="channel-mappings">Channel Mappings</h3>
+<p>Channel mapping of a controller refers to the way specific control inputs (like stick movements or switch toggles) are assigned to output channels that are sent to the flight controller or receiver. Each channel carries a particular function and channel mapping determines which input controls which channel.
+There are two common channel mapping schemes for RC controllers: AETR and TAER. We chose AETR, as this is the default configuration in Betaflight (AETR1234).
+AETR stands for Aileron (A), Elevator (E), Throttle (T), and Rudder (R), corresponding to the basic control axes of the drone.</p>
+<p>The first four channels are mapped as follows:</p>
+<ul>
+<li>Channel 1: Aileron (Roll – left/right)</li>
+<li>Channel 2: Elevator (Pitch – forward/backward)</li>
+<li>Channel 3: Throttle (speed up/down)</li>
+<li>Channel 4: Rudder (Yaw – rotate left/right)</li>
+</ul>
+<h2 id="switches">Switches</h2>
+<p>The switches on the controller are used to perform key functions such as arming the drone, changing flight modes, or triggering features like GPS rescue.
+It’s recommended to use Channel 5 for arming the drone. To configure this:</p>
+<ol>
+<li>Navigate to the Mixes page, highlight Channel 5, and press the jog wheel to enter its settings.</li>
+<li>Scroll to the Source field and flip the switch you want to assign for arming (e.g. SA or SD).</li>
+<li>Leave the other values at their default and save the configuration.</li>
+</ol>
+<p>For flight mode selection, it's recommended to use a 3-position switch (e.g. SC or SD) to allow easy toggling between multiple modes. After selecting your switch:</p>
+<ol>
+<li>Go to the next free channel (e.g. CH6).</li>
+<li>Repeat the same setup process as for arming, assigning the chosen switch to this channel.</li>
+</ol>
+<h2 id="modes">Modes</h2>
+<h3 id="setting-up-modes">Setting up Modes</h3>
+<p>Setting up modes is essential for configuring your controller to trigger specific flight functions like arming, flight modes, or GPS rescue. Before assigning any modes, make sure the corresponding AUX channels are already configured on your transmitter.</p>
+<p>Follow these steps to set up modes in the Betaflight Configurator:</p>
+<ol>
+<li>Open the Modes tab in Betaflight Configurator.</li>
+<li>Select the desired mode (e.g., ARM) and click “Add Range.”</li>
+<li>Choose the appropriate AUX channel from the dropdown (e.g., AUX 1, which is typically Channel 5).</li>
+<li>Drag the range slider to define when the mode should be active, based on your switch type:
+<ul>
+<li>2-position switch:
+<ul>
+<li>UP = ~1000</li>
+<li>DOWN = ~2000</li>
+</ul>
+</li>
+<li>3-position switch:
+<ul>
+<li>UP = ~1000</li>
+<li>MID = ~1500</li>
+<li>DOWN = ~2000</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Repeat this process for each additional mode you'd like to configure, such as ANGLE, HORIZON, ACRO, or GPS RESCUE.</p>
+<h3 id="important-modes">Important Modes</h3>
+<ul>
+<li>
+<p>ARM</p>
+<ul>
+<li>Starts the motors and enables flight.</li>
+<li>Should be disabled immediately after a crash to prevent damage.</li>
+<li>If Motor Stop is enabled, motors only spin up when throttle is increased.</li>
+</ul>
+</li>
+<li>
+<p>ACRO</p>
+<ul>
+<li>No flight assistance from the flight controller.</li>
+<li>All movement is controlled manually by the pilot.</li>
+<li>Ideal for experienced pilots.</li>
+<li>Also known as the “ultimate flight mode.”</li>
+</ul>
+</li>
+<li>
+<p>ACRO TRAINER</p>
+<ul>
+<li>Similar to ACRO, but with a tilt angle limit to help beginners.</li>
+<li>Prevents full flips and reduces the risk of losing control.</li>
+</ul>
+</li>
+<li>
+<p>ACRO TRAINER</p>
+<ul>
+<li>Similar to ACRO, but with a tilt angle limit to help beginners.</li>
+<li>Prevents full flips and reduces the risk of losing control.</li>
+<li>Requires accelerometer to be enabled.</li>
+</ul>
+</li>
+<li>
+<p>HORIZON</p>
+<ul>
+<li>Like ANGLE mode, but allows flips when the stick passes a certain threshold.</li>
+<li>Also requires accelerometer.</li>
+</ul>
+</li>
+<li>
+<p>GPS RESCUE</p>
+<ul>
+<li>Commands the drone to fly back to its takeoff point using GPS.</li>
+<li>Useful in case of signal loss or disorientation.</li>
+<li>Requires a GPS module</li>
+</ul>
+</li>
+<li>
+<p>FAILSAFE</p>
+<ul>
+<li>Simulates an RC signal loss.</li>
+<li>Used for testing failsafe behavior during setup.</li>
+</ul>
+</li>
+<li>
+<p>ANTI-GRAVITY</p>
+<ul>
+<li>Smooths out sudden dips caused by rapid throttle changes.</li>
+<li>Helps maintain altitude during quick stick inputs.</li>
+</ul>
+</li>
+<li>
+<p>BLACKBOX</p>
+<ul>
+<li>Toggles Blackbox logging, which records flight data for later analysis.</li>
+<li>Helpful for tuning and troubleshooting.</li>
+</ul>
+</li>
+<li>
+<p>FLIP OVER AFTER CRASH (Turtle Mode)</p>
+<ul>
+<li>Allows the quad to flip itself upright if it's upside down after a crash.</li>
+<li>Works by spinning specific motors in reverse.</li>
+</ul>
+</li>
+</ul>
+
+            </section>
+        </article>
+    </main>
+
+
+
+            
+                
+            
+
+            
+        </div>
+    </body>
+
+</html>

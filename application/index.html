@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="dark light">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https:&#x2F;&#x2F;Frankfurt-UAS-AI-Drone.github.io">
+
+    
+
+    
+    
+    
+        <title>
+            
+                The Application
+            
+        </title>
+
+        
+            <meta property="og:title"
+                  content="The Application" />
+        
+    
+
+    
+        
+            <meta property="og:description" content="Team &#x27;Bananastalker&#x27;" />
+        
+    
+
+    
+        
+            <meta name="description" content="Team &#x27;Bananastalker&#x27;" />
+        
+    
+
+    
+    
+
+    
+    
+        <link href=https://Frankfurt-UAS-AI-Drone.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+    <link rel="alternate"
+          type="application/atom+xml"
+          title="Masterprojekt: Drohnen mit künstlicher Intelligenz"
+          href="https://Frankfurt-UAS-AI-Drone.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://Frankfurt-UAS-AI-Drone.github.io/theme/light.css" />
+        <link id="darkModeStyle"
+              rel="stylesheet"
+              type="text/css"
+              href="https://Frankfurt-UAS-AI-Drone.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+
+    
+        <script src=https://Frankfurt-UAS-AI-Drone.github.io/js/themetoggle.js></script>
+
+        
+            <script>setTheme(getSavedTheme());</script>
+        
+    
+
+
+    <link rel="stylesheet"
+          type="text/css"
+          media="screen"
+          href="https://Frankfurt-UAS-AI-Drone.github.io/main.css" />
+
+    
+
+    <script defer
+                    src="https://Frankfurt-UAS-AI-Drone.github.io/search_index.en.js?h=1ca0e720305a0d74f573"></script>
+        <script defer
+                src="https://Frankfurt-UAS-AI-Drone.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script></head>
+
+
+    <body>
+        <div class="content">
+            <header>
+    <div class="main">
+        
+            <a href=https:&#x2F;&#x2F;Frankfurt-UAS-AI-Drone.github.io>Masterprojekt: Drohnen mit künstlicher Intelligenz</a>
+        
+
+
+        <div class="socials">
+            
+                <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;Frankfurt-UAS-AI-Drone" class="social">
+                    <img alt="github"
+                         src="https://Frankfurt-UAS-AI-Drone.github.io/icons/social/github.svg">
+                </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/drone style="margin-left: 0.25em">&#x2F;drone</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/raspberrypi style="margin-left: 0.25em">&#x2F;raspberrypi</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/application style="margin-left: 0.25em">&#x2F;application</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/about style="margin-left: 0.25em">&#x2F;about</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/controller style="margin-left: 0.25em">&#x2F;controller</a>
+        
+
+        
+            <button id="search-button"
+                    class="search-button"
+                    title="$SHORTCUT to open search">
+                <img src="https://Frankfurt-UAS-AI-Drone.github.io/icons/search.svg"
+                     alt="Search"
+                     class="search-icon">
+            </button>
+
+            <div id="searchModal"
+                 class="search-modal js"
+                 role="dialog"
+                 aria-labelledby="modalTitle">
+                <div id="modal-content">
+                    <h1 id="modalTitle" class="page-header">Search</h1>
+                    <div id="searchBar">
+                        <input id="searchInput"
+                               role="combobox"
+                               autocomplete="off"
+                               spellcheck="false"
+                               aria-expanded="false"
+                               aria-controls="results-container"
+                               placeholder="Search..." />
+                        <button id="clear-search" class="clear-button" title="Clear search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="results-container">
+                        <div id="results-info">
+                            <span id="zero_results" style="display: none;">No results</span>
+                            <span id="one_result" style="display: none;">1 result</span>
+                            <span id="many_results" style="display: none;">$NUMBER results</span>
+                        </div>
+                        <div id="results" role="listbox"></div>
+                    </div>
+                </div>
+            </div>
+        
+
+        
+            <a id="dark-mode-toggle"
+               onclick="toggleTheme(); event.preventDefault();"
+               href="#">
+                <img src="https://Frankfurt-UAS-AI-Drone.github.io/icons/sun.svg"
+                     id="sun-icon"
+                     style="filter: invert(1)"
+                     alt="Light" />
+                <img src=https://Frankfurt-UAS-AI-Drone.github.io/icons/moon.svg id="moon-icon" alt="Dark" />
+            </a>
+
+            <!-- Inititialize the theme toggle icons -->
+            <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+            
+            
+    
+    <main>
+        <article>
+            <div class="title">
+                
+                
+    <div class="page-header">
+        The Application<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2025-05-15</time>
+                    
+
+                    
+
+                    
+
+                    :: 409 Words
+
+                    
+                    
+
+                    
+                    
+
+                    
+
+                </div>
+            </div>
+
+            
+
+            
+            
+
+            <section class="body">
+                <p>This section outlines the software stack employed in our project. It includes the tools, frameworks, and libraries we used, as well as the architecture and logic behind our implementation decisions to ensure stability, scalability, and maintainability.</p>
+<h1 id="inferencecontroller">InferenceController</h1>
+<p>The <strong>init</strong> function is the constructor of the class and is executed automatically when a new instance of the class is created. In this case, it sets up both the machine learning model running on the Coral Edge TPU and the Raspberry Pi camera.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#bf616a;">self</span><span>.interpreter = </span><span style="color:#bf616a;">make_interpreter</span><span>(&#39;</span><span style="color:#a3be8c;">models/effdet_lite3.tflite</span><span>&#39;)
+</span><span style="color:#bf616a;">self</span><span>.interpreter.</span><span style="color:#bf616a;">allocate_tensors</span><span>()
+</span><span style="color:#bf616a;">self</span><span>.size = common.</span><span style="color:#bf616a;">input_size</span><span>(</span><span style="color:#bf616a;">self</span><span>.interpreter)
+</span></code></pre>
+<p>First, the Coral TPU is initialized by loading a pre-trained TensorFlow Lite model (effdet_lite3.tflite). The interpreter is created with make_interpreter, and the memory for the model's tensors is allocated using allocate_tensors(). The required input size for the model is then stored in self.size, which will later be used to ensure the camera feeds the model with correctly sized input.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#bf616a;">self</span><span>.camera = </span><span style="color:#bf616a;">Picamera2</span><span>()
+</span><span style="color:#bf616a;">self</span><span>.preview_config = </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">create_preview_configuration</span><span>({&#39;</span><span style="color:#a3be8c;">format</span><span>&#39;: &#39;</span><span style="color:#a3be8c;">RGB888</span><span>&#39;})
+</span><span style="color:#bf616a;">self</span><span>.video_encoder = </span><span style="color:#bf616a;">H264Encoder</span><span>()
+</span><span>
+</span><span style="color:#bf616a;">self</span><span>.video_config = </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">create_video_configuration</span><span>(</span><span style="color:#bf616a;">main</span><span>={&quot;</span><span style="color:#a3be8c;">size</span><span>&quot;: </span><span style="color:#bf616a;">self</span><span>.size}, </span><span style="color:#bf616a;">encode</span><span>=&quot;</span><span style="color:#a3be8c;">main</span><span>&quot;)
+</span><span style="color:#bf616a;">self</span><span>.video_fps = </span><span style="color:#d08770;">30
+</span><span style="color:#bf616a;">self</span><span>.still_config = </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">create_still_configuration</span><span>({&quot;</span><span style="color:#a3be8c;">size</span><span>&quot;: </span><span style="color:#bf616a;">self</span><span>.size})
+</span></code></pre>
+<p>Next, the Raspberry Pi camera is initialized using the Picamera2 library. A preview configuration is created using the RGB888 format, which is suitable for on-screen display or further processing. Additionally, a video encoder (H264Encoder) is initialized for handling video streams. A video configuration is prepared that matches the model's input size, and the desired frame rate is set to 30 frames per second. There's also a configuration for still image capture, again using the model’s input dimensions.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">configure</span><span>(</span><span style="color:#bf616a;">self</span><span>.preview_config)
+</span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">set_controls</span><span>({&quot;</span><span style="color:#a3be8c;">FrameRate</span><span>&quot;: </span><span style="color:#bf616a;">self</span><span>.video_fps})
+</span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">start</span><span>()
+</span><span style="color:#bf616a;">sleep</span><span>(</span><span style="color:#d08770;">2</span><span>)
+</span></code></pre>
+<p>After these configurations are set up, the camera is configured with the preview settings, the frame rate is applied via camera controls, and the camera is started. A short delay of two seconds is included at the end to give the camera time to properly initialize before use.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>):
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.interpreter = </span><span style="color:#bf616a;">make_interpreter</span><span>(&#39;</span><span style="color:#a3be8c;">models/effdet_lite3.tflite</span><span>&#39;)
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.interpreter.</span><span style="color:#bf616a;">allocate_tensors</span><span>()
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.size = common.</span><span style="color:#bf616a;">input_size</span><span>(</span><span style="color:#bf616a;">self</span><span>.interpreter)
+</span><span>
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.camera = </span><span style="color:#bf616a;">Picamera2</span><span>()
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.preview_config = </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">create_preview_configuration</span><span>({&#39;</span><span style="color:#a3be8c;">format</span><span>&#39;: &#39;</span><span style="color:#a3be8c;">RGB888</span><span>&#39;})
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.video_encoder = </span><span style="color:#bf616a;">H264Encoder</span><span>()
+</span><span>
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.video_config = </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">create_video_configuration</span><span>(</span><span style="color:#bf616a;">main</span><span>={&quot;</span><span style="color:#a3be8c;">size</span><span>&quot;: </span><span style="color:#bf616a;">self</span><span>.size}, </span><span style="color:#bf616a;">encode</span><span>=&quot;</span><span style="color:#a3be8c;">main</span><span>&quot;)
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.video_fps = </span><span style="color:#d08770;">30
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.still_config = </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">create_still_configuration</span><span>({&quot;</span><span style="color:#a3be8c;">size</span><span>&quot;: </span><span style="color:#bf616a;">self</span><span>.size})
+</span><span>
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">configure</span><span>(</span><span style="color:#bf616a;">self</span><span>.preview_config)
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">set_controls</span><span>({&quot;</span><span style="color:#a3be8c;">FrameRate</span><span>&quot;: </span><span style="color:#bf616a;">self</span><span>.video_fps})
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">start</span><span>()
+</span><span>    </span><span style="color:#bf616a;">sleep</span><span>(</span><span style="color:#d08770;">2</span><span>)
+</span></code></pre>
+<p>The process_frame function handles the object detection process for a single video frame.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>common.</span><span style="color:#bf616a;">set_input</span><span>(</span><span style="color:#bf616a;">self</span><span>.interpreter, frame)
+</span><span style="color:#bf616a;">self</span><span>.interpreter.</span><span style="color:#bf616a;">invoke</span><span>()
+</span></code></pre>
+<p>First, it prepares the frame as input for the Coral Edge TPU by passing it to the interpreter using common.set_input(). Once the frame is set, the interpreter runs inference with self.interpreter.invoke(), which processes the image using the preloaded TensorFlow Lite model.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>objects = detect.</span><span style="color:#bf616a;">get_objects</span><span>(</span><span style="color:#bf616a;">self</span><span>.interpreter, </span><span style="color:#bf616a;">score_threshold</span><span>=</span><span style="color:#d08770;">0.5</span><span>)
+</span><span>
+</span><span style="color:#b48ead;">for </span><span>obj </span><span style="color:#b48ead;">in </span><span>objects:
+</span><span>    bbox = obj.bbox
+</span><span>    cv2.</span><span style="color:#bf616a;">rectangle</span><span>(frame, (bbox.xmin, bbox.ymin), (bbox.xmax, bbox.ymax), (</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">255</span><span>, </span><span style="color:#d08770;">0</span><span>), </span><span style="color:#d08770;">2</span><span>)
+</span><span>    cv2.</span><span style="color:#bf616a;">putText</span><span>(frame, </span><span style="color:#b48ead;">f</span><span>&#39;{obj.id} {obj.score</span><span style="color:#d08770;">:.2f</span><span>}&#39;, (bbox.xmin, bbox.ymin - </span><span style="color:#d08770;">10</span><span>), cv2.</span><span style="color:#bf616a;">FONT_HERSHEY_SIMPLEX</span><span>, </span><span style="color:#d08770;">0.5</span><span>, (</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">255</span><span>, </span><span style="color:#d08770;">0</span><span>), </span><span style="color:#d08770;">2</span><span>)
+</span></code></pre>
+<p>After the inference is complete, the function retrieves the detected objects using detect.get_objects(), filtering out any results with a confidence score below 0.5. For each detected object, it extracts the bounding box (bbox) and draws a green rectangle around the object on the frame using OpenCV. It also overlays a label above the box displaying the object ID and confidence score.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">return </span><span>frame
+</span></code></pre>
+<p>Finally, the annotated frame is returned, now containing visual markers for any detected objects. This frame can then be displayed, recorded, or used for further processing.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">process_frame</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">frame</span><span>):
+</span><span>    common.</span><span style="color:#bf616a;">set_input</span><span>(</span><span style="color:#bf616a;">self</span><span>.interpreter, frame)
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.interpreter.</span><span style="color:#bf616a;">invoke</span><span>()
+</span><span>
+</span><span>    objects = detect.</span><span style="color:#bf616a;">get_objects</span><span>(</span><span style="color:#bf616a;">self</span><span>.interpreter, </span><span style="color:#bf616a;">score_threshold</span><span>=</span><span style="color:#d08770;">0.5</span><span>)
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">for </span><span>obj </span><span style="color:#b48ead;">in </span><span>objects:
+</span><span>        bbox = obj.bbox
+</span><span>        cv2.</span><span style="color:#bf616a;">rectangle</span><span>(frame, (bbox.xmin, bbox.ymin), (bbox.xmax, bbox.ymax), (</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">255</span><span>, </span><span style="color:#d08770;">0</span><span>), </span><span style="color:#d08770;">2</span><span>)
+</span><span>        cv2.</span><span style="color:#bf616a;">putText</span><span>(frame, </span><span style="color:#b48ead;">f</span><span>&#39;{obj.id} {obj.score</span><span style="color:#d08770;">:.2f</span><span>}&#39;, (bbox.xmin, bbox.ymin - </span><span style="color:#d08770;">10</span><span>), cv2.</span><span style="color:#bf616a;">FONT_HERSHEY_SIMPLEX</span><span>, </span><span style="color:#d08770;">0.5</span><span>, (</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">255</span><span>, </span><span style="color:#d08770;">0</span><span>), </span><span style="color:#d08770;">2</span><span>)
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">return </span><span>frame
+</span></code></pre>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"></code></pre>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"></code></pre>
+
+            </section>
+        </article>
+    </main>
+
+
+
+            
+                
+            
+
+            
+        </div>
+    </body>
+
+</html>
