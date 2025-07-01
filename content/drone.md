@@ -73,7 +73,7 @@ This results in a current total drone weight of approximately `608,9g`. The over
 - Flight Controller:
     + To connect the propeller motors to the flight controller, the propeller motors wires were soldered directly to the flight controller. The has specific solder pads for this purpose, making it easy to attach the motor wires directly to the board. The motor mapping - defining which motor corresponds to which output - an be configured either in Betaflight or conveniently through the SpeedyBee app on a smartphone. In addition to the motors, it was also necessary to solder a power cable and a capacitor to the flight controller. Both components share the same solder pads, so they had to be carefully connected to ensure proper power delivery.
 
-    + ![propeller motors soldering plan](./images/propellerMotorsSolderingPlan.jpg)
+    + ![propeller motors soldering plan](/images/propellerMotorsSolderingPlan.jpg)
 
 - Video Transmitter:
     + To connect the video transmitter to the flight controller, four cables were used: black, red, white, and yellow.
@@ -82,13 +82,13 @@ This results in a current total drone weight of approximately `608,9g`. The over
         + The white cable connects the IRC pad (for control commands) on the video transmitter to the T3 pad on the flight controller. This allows the flight controller to send configuration commands to the VTX, such as changing channels or power levels.
         + The yellow cable connects the VTX pad on the flight controller to the video input pad on the video transmitter. This carries the video signal from the onboard camera, which is then transmitted to the FPV goggles.
 
-    + ![flight controller and video transmitter soldering plan](./images/flightControllerVideoTransmitterSolderingPlan.jpg)
+    + ![flight controller and video transmitter soldering plan](/images/flightControllerVideoTransmitterSolderingPlan.jpg)
 
 Camera `Caddx Ratel PRO MN01 - 4000B`:
     + ![Camera soldering plan]()
 
 + ELRS Receiver:
-    + ![ELRS receiver soldering plan](./images/ELRSReceiverSolderingPlan.jpg)
+    + ![ELRS receiver soldering plan](/images/ELRSReceiverSolderingPlan.jpg)
 
 - GPS modul:
-    + ![GPS modul soldering plan](./images/GPSModulSolderingPlan.jpg)
+    + ![GPS modul soldering plan](/images/GPSModulSolderingPlan.jpg)
