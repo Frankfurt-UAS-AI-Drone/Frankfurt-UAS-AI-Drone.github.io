@@ -116,5 +116,5 @@ This results in a current total drone weight of approximately `608,9g`. The over
         + Pin 4 provides the power supply (5V),
         + Pin 6 serves as GND,
         + Pin 8 is the RX pin and should be connected to the TX pad on the flight controller,
-        + Pin 10 is the TX pin and should be connected to the RX pad on the flight controller.
+        + Pin 10 is the TX pin and should be connected to the RX pad on the flight controller.</br>
     This setup enables both power delivery and bidirectional communication between the Raspberry Pi and the flight controller.
