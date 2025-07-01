@@ -1,5 +1,5 @@
 +++
-title = "The Application" 
+title = "Application" 
 date = "2025-05-15" 
 +++
 
