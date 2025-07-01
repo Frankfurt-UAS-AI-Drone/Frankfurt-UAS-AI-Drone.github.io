@@ -3,12 +3,31 @@ title = "The Application"
 date = "2025-05-15" 
 +++
 
-This section outlines the software stack employed in our project. It includes the tools, frameworks, and libraries we used, as well as the architecture and logic behind our implementation decisions to ensure stability, scalability, and maintainability.
+# Overview
+The main goal of the project was enabling the drone to follow an object (i.e. a banana). For this **object detection** (with a targeting logic) and a way to **send commands** from the Raspberry Pi to the flight controller (FC). </br>
+A side goal was implementing a way to start the auto pilot via the remote control (RC). To achieve this, a way to **receive telemetry** from the FC is required. 
 
-# InferenceController
+## Repos (sources)
+Parts of this work were based on existing code bases. ["autopilot_bee_ept"](https://github.com/under0tech/autopilot_bee_ept) and ["YAMSPy"](https://github.com/thecognifly/YAMSPy) are used for the communication with the flight controller, via the ["MulitWii Serial Protocol (MSP)"](https://betaflight.com/docs/development/API/MSP-Extensions). ["reefwing"](https://gist.github.com/reefwing/e9ba13aed51e83cb7245bb4e55b84dea) provides an overview of various MSP codes, that can be used to get telemetry from the FC and to send commands to it. </br>
 
-The __init__ function is the constructor of the class and is executed automatically when a new instance of the class is created. In this case, it sets up both the machine learning model running on the Coral Edge TPU and the Raspberry Pi camera.
+The inference and targeting logic are based on the ["Directional-object-tracking-with-TFLite-and-Edge-TPU"](https://github.com/Tqualizer/Directional-object-tracking-with-TFLite-and-Edge-TPU). 
 
+
+## Architecture
+The architecture of this project is a work in progress. What follows is a rough description of the current state. At the core of the application lies a control loop, that polls the FC for the status of the RC.
+
+Upon a state change in _AUX 3_ the `inference` component is triggered to take and infer one picture or a stream of pictures. Currently this only saves them to a file. In the future this is supposed to be the base for the auto pilot. Upon a state change in _AUX 4_, an empty autopilot is triggered, as the targeting logic has not been finalized. 
+
+The `inference` component handles the communication with the camera and the Coral TPU. FC communication is enabled by the functions in the `msp` component.
+
+# The Code
+This section provides an overview over the code and some explanations if necessary.
+
+## inference
+To enable communication with the camera and the Coral TPU, the `InferenceController` class is implemented, with the following methods:
+
+
+__init__ initializes the controller with two different models. `effdet_lite3` (512x512 / 107.6 ms) for stills and `ssd_mobnet2_tf2` (300x300 / 7.6 ms) for streams. The reason for using two different models, is performance. While the former model offers a higher accuracy, it is not usable for videos as it only managaes around 3 FPS in all calculations. The latter model manages a 10 FPS stream, which is usable. However it should be looked at on how this performance can be increased to provide a better base for the auto pilot.
 ```python
 self.interpreter = make_interpreter('models/effdet_lite3.tflite')
 self.interpreter.allocate_tensors()
