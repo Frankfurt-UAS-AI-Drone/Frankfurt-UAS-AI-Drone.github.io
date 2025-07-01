@@ -18,7 +18,8 @@ menu = [
     { name = "Raspberry Pi", url = "/raspberrypi", weight = 2 },
     { name = "Application", url = "/application", weight = 3 },
     { name = "About", url = "/about", weight = 4},
-    { name = "Configurations", url = "/drone_config", weight = 5}
+    { name = "Configurations", url = "/drone_config", weight = 5},
+    { name = "Further Work", url = "/further_work", weight = 6}
 ]
 
 socials = [
