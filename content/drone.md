@@ -88,7 +88,7 @@ Camera `Caddx Ratel PRO MN01 - 4000B`:
     + ![Camera soldering plan]()
 
 + ELRS Receiver:
-    + ![ELRS receiver soldering plan](/images/ELRSReceiverSolderingPlan.jpg)
+    + ![ELRS receiver soldering plan](/images/ELRSReceiverSolderingPlan.png)
 
 - GPS modul:
     + ![GPS modul soldering plan](/images/GPSModulSolderingPlan.jpg)
