@@ -1,5 +1,5 @@
 +++
-title = "Drone Controller"
+title = "Drone Configuration"
 date = "2025-06-16"
 +++
 
@@ -27,6 +27,30 @@ The first four channels are mapped as follows:
 - Channel 3: Throttle (speed up/down)
 - Channel 4: Rudder (Yaw – rotate left/right)
 
+### Channel Order
+Channel ordering of a controller refers to the sequence in which the control functions (like throttle, roll, pitch, and yaw) are assigned to the output channels on the transmitter.
+The Channel Order can be viewed in the Mixes page in any EdgeTX radio. It can also be set up in EdgeTX in the remote controller itself.
+1. From the home screen, press the Model button. 
+2. Navigate to Mixes tab by pressing the Page button until the heading shows up.
+3. The following maps the channels according to the AETR (Betaflight default):
+    1. Channel 1 (Roll)
+        - Highlight CH1 using the jog wheel and press to enter the setup.
+        - Set Source to *aileron* stick. -> Optionally, adjust Weight (how much stick movement passed to output) or apply Expo for smoother control.
+    2. Channel 2 (Pitch) -> Highlight CH2 and set the Source to the elevator stick.
+    3. Channel 3 (Throttle) -> Highlight CH3 and set the Source to the throttle stick.
+    4. Channel 4 (Yaw) -> Highlight CH4 and set the Source to the rudder stick.
+
+### Default Channels
+- To change the ***default channel*** order in EdgeTX do the following:
+	1. Press the **SYS** button and navigate to the *Settings* tab with the **PAGE** button.
+	2. Scroll down to find the *Default Channel Order* setting and set it to **AETR**
+	3. Press return to save the changes.
+
+### Channel testing
+- Testing the channel mapping setup:
+	1. Connect your drone and open the Receiver tab in Betaflight Configurator
+	2. Move the sticks and see if the corresponding channels respond correctly.
+		1. CH 5 corresponds to AUX 1, CH 6 corresponds to AUX 2 and so on...
 
 ## Switches
 The switches on the controller are used to perform key functions such as arming the drone, changing flight modes, or triggering features like GPS rescue.
