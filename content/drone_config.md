@@ -1,5 +1,5 @@
 +++
-title = "Drone Configuration"
+title = "Configuration"
 date = "2025-06-16"
 +++
 
@@ -20,25 +20,15 @@ Channel mapping of a controller refers to the way specific control inputs (like 
 There are two common channel mapping schemes for RC controllers: AETR and TAER. We chose AETR, as this is the default configuration in Betaflight (AETR1234).
 AETR stands for Aileron (A), Elevator (E), Throttle (T), and Rudder (R), corresponding to the basic control axes of the drone.
 
-The first four channels are mapped as follows:
-
-- Channel 1: Aileron (Roll – left/right)
-- Channel 2: Elevator (Pitch – forward/backward)
-- Channel 3: Throttle (speed up/down)
-- Channel 4: Rudder (Yaw – rotate left/right)
-
-### Channel Order
-Channel ordering of a controller refers to the sequence in which the control functions (like throttle, roll, pitch, and yaw) are assigned to the output channels on the transmitter.
-The Channel Order can be viewed in the Mixes page in any EdgeTX radio. It can also be set up in EdgeTX in the remote controller itself.
 1. From the home screen, press the Model button. 
 2. Navigate to Mixes tab by pressing the Page button until the heading shows up.
 3. The following maps the channels according to the AETR (Betaflight default):
-    1. Channel 1 (Roll)
+    1. Channel 1 Aileron (Roll – left/right)
         - Highlight CH1 using the jog wheel and press to enter the setup.
         - Set Source to *aileron* stick. -> Optionally, adjust Weight (how much stick movement passed to output) or apply Expo for smoother control.
-    2. Channel 2 (Pitch) -> Highlight CH2 and set the Source to the elevator stick.
-    3. Channel 3 (Throttle) -> Highlight CH3 and set the Source to the throttle stick.
-    4. Channel 4 (Yaw) -> Highlight CH4 and set the Source to the rudder stick.
+    2. Channel 2 Elevator (Pitch – forward/backward) -> Highlight CH2 and set the Source to the elevator stick.
+    3. Channel 3 Throttle (speed up/down) -> Highlight CH3 and set the Source to the throttle stick.
+    4. Channel 4 Rudder (Yaw – rotate left/right) -> Highlight CH4 and set the Source to the rudder stick.
 
 ### Default Channels
 - To change the ***default channel*** order in EdgeTX do the following:

@@ -1,5 +1,5 @@
 +++
-title = "The Drone Hardware" 
+title = "Drone Hardware" 
 date = "2025-05-15"
 +++
 
