@@ -84,11 +84,27 @@ This results in a current total drone weight of approximately `608,9g`. The over
 
     + ![flight controller and video transmitter soldering plan](/images/flightControllerVideoTransmitterSolderingPlan.jpg)
 
-Camera `Caddx Ratel PRO MN01 - 4000B`:
+- Camera `Caddx Ratel PRO MN01 - 4000B`:
+    + To connect the camera to the flight controller, we used an extension board that simplifies and improves the soldering process. The 5V pad from the flight controller is connected to the V_IN pad on the extension board, while the GND pad on the flight controller is connected to the GND pad on the extension board. This setup ensures a reliable power and ground connection between the two components. Afterwards, the GND and power cable are connected to the corresponding pads on the extension board, while the remaining signal cables are soldered directly to the flight controller.
+
     + ![Extension Board soldering plan](/images/ExtensionBoardSolderingPlan.png)
 
-+ ELRS Receiver:
+- ELRS Receiver:
+    + To connect the ELRS receiver to the flight controller, the following cable connections are required:
+        + The black cable is soldered to the GND pads on both the receiver and the flight controller to establish a common ground.
+        + The red cable connects the VCC pad on the receiver to the 5V pad on the flight controller, supplying power to the receiver.
+        + The white cable is soldered from the TX pad on the receiver to the R6 pad on the flight controller, allowing data transmission from the receiver to the controller.
+        + The yellow cable connects the RX pad on the receiver to the T6 pad on the flight controller, enabling data transmission from the controller to the receiver.
+
     + ![ELRS receiver soldering plan](/images/ELRSReceiverSolderingPlan.png)
 
 - GPS modul:
+    + To connect the GPS module to the flight controller and ensure proper functionality, the following cable connections are required:
+        + The black cable is soldered to the GND pads on both the receiver and the flight controller to establish a common ground.
+        + The red cable connects the VCC pad on the receiver to the 5V pad on the flight controller, supplying power to the receiver.
+        + The yellow cable connects the TX pad on the GPS module to the R5 pad on the flight controller, allowing data to be sent from the GPS to the controller.
+        + The white cable connects the RX pad on the GPS module to the T5 pad on the flight controller, enabling the controller to send data back to the GPS module.
+        + The green cable connects the SCL pads on both devices, establishing the clock line for I2C communication.
+        + The blue cable connects the SDA pads on both devices, providing the data line for I2C communication.
+
     + ![GPS modul soldering plan](/images/GPSModulSolderingPlan.jpg)
