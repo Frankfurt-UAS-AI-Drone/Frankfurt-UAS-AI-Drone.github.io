@@ -70,7 +70,7 @@ Due to current German aviation regulations, our drone must not exceed a total we
 This results in a current total drone weight of approximately `608,9g`. The overall cost of the components is at around `431€`.
 
 # Drone Construction Overview
-- Flight Controller:
+- Propeller Motors:
     + To connect the propeller motors to the flight controller, the propeller motors wires were soldered directly to the flight controller. The has specific solder pads for this purpose, making it easy to attach the motor wires directly to the board. The motor mapping - defining which motor corresponds to which output - an be configured either in Betaflight or conveniently through the SpeedyBee app on a smartphone. In addition to the motors, it was also necessary to solder a power cable and a capacitor to the flight controller. Both components share the same solder pads, so they had to be carefully connected to ensure proper power delivery.
 
     + ![propeller motors soldering plan](/images/propellerMotorsSolderingPlan.jpg)
@@ -98,7 +98,7 @@ This results in a current total drone weight of approximately `608,9g`. The over
 
     + ![ELRS receiver soldering plan](/images/ELRSReceiverSolderingPlan.png)
 
-- GPS modul:
+- GPS Modul:
     + To connect the GPS module to the flight controller and ensure proper functionality, the following cable connections are required:
         + The black cable is soldered to the GND pads on both the receiver and the flight controller to establish a common ground.
         + The red cable connects the VCC pad on the receiver to the 5V pad on the flight controller, supplying power to the receiver.
@@ -108,3 +108,13 @@ This results in a current total drone weight of approximately `608,9g`. The over
         + The blue cable connects the SDA pads on both devices, providing the data line for I2C communication.
 
     + ![GPS modul soldering plan](/images/GPSModulSolderingPlan.jpg)
+
+- Connection for the Raspberry Pi:
+    + To ensure proper power supply to the Raspberry Pi, two cables—one for ground (GND) and one for power—must be soldered to the flight controller. These connections can optionally be made using the extension board to simplify the soldering process.
+    Additionally, it is possible to solder extra cables to enable GPIO communication between the Raspberry Pi and the flight controller. This GPIO traffic can include various types of data, such as telemetry, control signals, or sensor input. If soldering is not feasible—for example, due to space constraints or hardware limitations—Bluetooth Low Energy (BLE) or a direct USB connection can serve as alternative communication methods.
+    + On the Raspberry Pi side, the following GPIO pins are used:
+        + Pin 4 provides the power supply (5V),
+        + Pin 6 serves as GND,
+        + Pin 8 is the RX pin and should be connected to the TX pad on the flight controller,
+        + Pin 10 is the TX pin and should be connected to the RX pad on the flight controller.
+    This setup enables both power delivery and bidirectional communication between the Raspberry Pi and the flight controller.
