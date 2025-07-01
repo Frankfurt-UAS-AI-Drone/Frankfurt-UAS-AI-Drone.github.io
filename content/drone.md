@@ -85,7 +85,7 @@ This results in a current total drone weight of approximately `608,9g`. The over
     + ![flight controller and video transmitter soldering plan](/images/flightControllerVideoTransmitterSolderingPlan.jpg)
 
 Camera `Caddx Ratel PRO MN01 - 4000B`:
-    + ![Camera soldering plan]()
+    + ![Extension Board soldering plan](/static/images/ExtensionBoardSolderingPlan.png)
 
 + ELRS Receiver:
     + ![ELRS receiver soldering plan](/images/ELRSReceiverSolderingPlan.png)
