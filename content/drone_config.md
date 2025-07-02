@@ -5,6 +5,12 @@ date = "2025-06-16"
 
 The following section covers all aspects related to the configuration of the controller used to fly the drone. This includes setting up input channels, assigning switches, and adjusting flight modes to ensure full manual control and reliable communication with the drone. As mentioned in the hardware section, we used the `Radiomaster Boxer ELRS GRYM2` as a controller.
 
+# Different Settings
+- Board and Sensor Alignment: The yaw angle needed to be set to 0° instead of the default 45° to ensure correct orientation of the flight controller.
+- GPS Activation: GPS functionality had to be enabled manually under the "Other Features" menu.
+- Throttle Configuration: In the "PID Tuning" section, under "Rateprofile Settings", we set the Throttle Limit to Scale at 70% to reduce overall throttle responsiveness.
+- Motor Direction Setup: In the "Motors" tab, the correct motor spin direction was configured—this determines whether the motors spin inward or outward relative to the center of the drone.
+
 # Controller
 ## Startup Warnings
 When the controller is powered on, it may display the following warnings:
@@ -12,7 +18,7 @@ When the controller is powered on, it may display the following warnings:
 - Throttle Warning: Triggered if the throttle stick (left stick) is not in the lowest position when turned on.
 - Switch Warning:   Appears when one or more switches are not in their default positions.
 - Alarms Warning:   Shown if the sound mode is set to mute, which may prevent important audio alerts.
-- SD Card Warning:  Displayed if the SD card's content version does not match the controller’s firmware version. If you are facing issues regarding the SD Card Warning, please have a look at this [fix](https://oscarliang.com/fix-sd-card-warning-opentx/)
+- SD Card Warning:  Displayed if the SD card's content version does not match the controller’s firmware version. If you are facing issues regarding the SD Card Warning, please have a look at this [fix](https://oscarliang.com/fix-sd-card-warning-opentx/).
 
 ## Channels
 ### Channel Mappings
@@ -72,48 +78,21 @@ Follow these steps to set up modes in the Betaflight Configurator:
 
 Repeat this process for each additional mode you'd like to configure, such as ANGLE, HORIZON, ACRO, or GPS RESCUE.
 
-### Important Modes
-- ARM
-    - Starts the motors and enables flight.
-    - Should be disabled immediately after a crash to prevent damage.
-    - If Motor Stop is enabled, motors only spin up when throttle is increased.
+### Used Modes
+We used two key flight modes in our setup: Arm and Angle.
 
-- ACRO
-    - No flight assistance from the flight controller.
-    - All movement is controlled manually by the pilot.
-    - Ideal for experienced pilots.
-    - Also known as the “ultimate flight mode.”
+The Arm mode is required to activate the motors and make the drone ready for flight. When enabled, the motors spin at idle speed, allowing the drone to respond to throttle input. Without arming, the drone cannot take off or be controlled via the transmitter. To ensure intentional activation, arming is configured to require two switches on the controller.</br>
+The Angle mode is a stabilized flight mode that automatically levels the drone horizontally when the sticks are released. It limits the maximum tilt angle, making it easier to control and preventing the drone from flipping. This is especially useful for beginner pilots or situations where stable flight is important.
 
-- ACRO TRAINER
-    - Similar to ACRO, but with a tilt angle limit to help beginners.
-    - Prevents full flips and reduces the risk of losing control.
+Additionally, many other flight modes can be configured, such as Acro, Acro Trainer, Horizon, and others. For a complete overview of all available modes, please refer to the list [here](https://betaflight.com/docs/development/Modes).
 
-- ACRO TRAINER
-    - Similar to ACRO, but with a tilt angle limit to help beginners.
-    - Prevents full flips and reduces the risk of losing control.
-    - Requires accelerometer to be enabled.
+### Mode Configuration
+In the Modes tab, we configured Arm on AUX1 and AUX2, Angle Mode on AUX5, and MSP Overwrite Mode on AUX4. The overwrite mode is active in the range from 1775 to 2100 and is controlled via a three-position switch, which is used for activating the autopilot. More details about this feature are provided on the [Application Page](/content/application.md).
 
-- HORIZON
-    - Like ANGLE mode, but allows flips when the stick passes a certain threshold.
-    - Also requires accelerometer.
+## Port Configurations
+- UART3: Configured with the VTX (IRC Tramp) protocol under the Peripherals section to enable control of the video transmitter.
+- UART4: Enabled MSP for Bluetooth Low Energy (BLE) communication.
+- UART5: Assigned to GPS under Sensor Input, with a baud rate of 57600.
+- UART6: Configured with Serial RX to receive input from the radio receiver.
 
-- GPS RESCUE
-    - Commands the drone to fly back to its takeoff point using GPS.
-    - Useful in case of signal loss or disorientation.
-    - Requires a GPS module
-
-- FAILSAFE
-    - Simulates an RC signal loss.
-    - Used for testing failsafe behavior during setup.
-
-- ANTI-GRAVITY
-    - Smooths out sudden dips caused by rapid throttle changes.
-    - Helps maintain altitude during quick stick inputs.
-    
-- BLACKBOX
-    - Toggles Blackbox logging, which records flight data for later analysis.
-    - Helpful for tuning and troubleshooting.
-
-- FLIP OVER AFTER CRASH (Turtle Mode)
-    - Allows the quad to flip itself upright if it's upside down after a crash.
-    - Works by spinning specific motors in reverse.
+## MSP Overwrite Mask
