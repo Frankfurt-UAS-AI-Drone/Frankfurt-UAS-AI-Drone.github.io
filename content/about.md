@@ -16,5 +16,5 @@ date = "2025-06-05"
 **Project name:** Drones with Artificial Intelligence
 
 # Miscellaneous
-The source code for the drone can be found [here](https://github.com/Frankfurt-UAS-AI-Drone/AI-Drone)
+The source code for the drone can be found [here](https://github.com/Frankfurt-UAS-AI-Drone/AI-Drone) </br>
 The GitHub Pages source code can be found [here](https://github.com/Frankfurt-UAS-AI-Drone/Frankfurt-UAS-AI-Drone.github.io)
