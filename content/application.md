@@ -18,7 +18,7 @@ This section provides an overview over interesting sections of the code and some
 ## main
 At the core of the application lies a control loop, that polls the FC for the status of the RC. Upon a state change in _AUX 3_ the `inference` component is triggered to run basic object detection either on a still or on a video (implemented as a stream). Upon a state change in _AUX 4_, the empty autopilot is triggered. Going forward the autopilot is supposed to be based on a targeting mechanism to.
 
-The `inference` component handles the communication with the camera and the Coral TPU. FC communication is enabled by the functions in the `msp` component.
+The `inference` component handles the communication with the camera and the Coral TPU. FC communication is enabled through the functions in the `msp` component.
 
 ```python
  while True:
@@ -65,7 +65,7 @@ The `inference` component handles the communication with the camera and the Cora
 To enable communication with the camera and the Coral TPU, the `InferenceController` class is implemented, with the following methods:
 
 ### __init__(self)
-`__init__` initializes the controller with two different models. `effdet_lite3` (512x512 / 107.6 ms) for stills and `ssd_mobnet2_tf2` (300x300 / 7.6 ms) for streams. The reason for using two different models, is performance. While the former model offers a higher accuracy, it is not usable for videos as it only manages around 3 FPS in all calculations. The latter model musters a 10 FPS stream, which is usable. Increasing the performance of the video stream remains a task for future semesters.
+`__init__` initializes the controller with two different [models](https://coral.ai/models/all/). `effdet_lite3` (512x512 / 107.6 ms) for stills and `ssd_mobnet2_tf2` (300x300 / 7.6 ms) for streams. The reason for using two different models, is performance. While the former model offers a higher accuracy, it is not usable for videos as it only manages around 3 FPS in all calculations. The latter model musters a 10 FPS stream, which is usable. None of these models are really useful in production. For good production performance, it is necessary to train a purpose-specific model. 
 
 ```python
 self.still_interpreter = make_interpreter("models/effdet_lite3/effdet_lite3.tflite")
@@ -169,7 +169,7 @@ def go_forward():
 ```
 
 ## msp
-The `Command` enum contains the necessary command IDs for the implemented functionalities (more available [here](https://gist.github.com/reefwing/e9ba13aed51e83cb7245bb4e55b84dea)). `send_msp_request` is used to send telemetry requests and `send_msp_command` is used to send instructions to the FC. The main difference is that the latter allows for a payload that contains the instructions. This is used to send RC values to the flight controller, to control it from the Pi.
+The `Command` enum contains the necessary command IDs for the implemented functionalities. `send_msp_request` is used to send telemetry requests and `send_msp_command` is used to send instructions to the FC. The main difference is that the latter allows for a payload that contains the instructions. This is used to send RC values to the flight controller, to control it from the Pi.
 
 ```python
 def send_msp_command(serial_port, msp_command_id, data):
