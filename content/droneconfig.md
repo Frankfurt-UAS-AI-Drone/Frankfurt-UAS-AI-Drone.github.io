@@ -1,5 +1,6 @@
 +++
-title = "Configuration"
+weight = 2
+title = "2_Configuration"
 date = "2025-06-16"
 +++
 

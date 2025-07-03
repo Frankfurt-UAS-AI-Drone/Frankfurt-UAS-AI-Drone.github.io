@@ -1,6 +1,7 @@
 +++
-title = "Rapsberry Pi" 
-date = "2025-05-15" 
+weight = 3
+title = "3_Rapsberry-Pi" 
+date = "2025-07-01" 
 +++
 
 The following section covers all aspects related to the Raspberry Pi used in our project. This includes its hardware setup, software configuration, and its role in running the AI application.

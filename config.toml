@@ -14,12 +14,12 @@ theme = "toggle"
 repo_url = "https://github.com/Frankfurt-UAS-AI-Drone/Frankfurt-UAS-AI-Drone.github.io"
 
 menu = [
-    { name = "Hardware", url = "/drone_hardware", weight = 1 },
-    { name = "Raspberry Pi", url = "/raspberrypi", weight = 2 },
-    { name = "Application", url = "/application", weight = 3 },
-    { name = "About", url = "/about", weight = 4},
-    { name = "Configurations", url = "/drone_config", weight = 5},
-    { name = "Further Work", url = "/further_work", weight = 6}
+    { name = "Hardware", url = "/dronehardware"},
+    { name = "Config", url = "/droneconfig"},
+    { name = "Raspberry_Pi", url = "/raspberrypi"},
+    { name = "App", url = "/application"},
+    { name = "Further_Work", url = "/furtherwork"},
+    { name = "About", url = "/about"},    
 ]
 
 socials = [

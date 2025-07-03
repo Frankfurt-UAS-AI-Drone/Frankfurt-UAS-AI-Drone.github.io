@@ -1,5 +1,6 @@
 +++
-title = "Drone Hardware" 
+weight = 1
+title = "1_Hardware" 
 date = "2025-05-15"
 +++
 
