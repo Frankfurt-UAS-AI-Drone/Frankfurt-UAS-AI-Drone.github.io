@@ -12,6 +12,11 @@ The following section covers all aspects related to the configuration of the con
 - Throttle Configuration: In the "PID Tuning" section, under "Rateprofile Settings", we set the Throttle Limit to Scale at 70% to reduce overall throttle responsiveness.
 - Motor Direction Setup: In the "Motors" tab, the correct motor spin direction was configured—this determines whether the motors spin inward or outward relative to the center of the drone.
 
+# Camera Settings
+1. Set UART3 Peripheral to "IRCTramp" and save.
+2. In the CLI page, enter the following commands: set osd_displayport_device = MAX7456 and save.
+3. In the OSD tab, set the video format to PAL or NTSC (depending on the camera protocol)
+
 # Controller
 ## Startup Warnings
 When the controller is powered on, it may display the following warnings:
@@ -97,3 +102,6 @@ In the Modes tab, we configured Arm on AUX1 and AUX2, Angle Mode on AUX5, and MS
 - UART6: Configured with Serial RX to receive input from the radio receiver.
 
 ## MSP Override Mask
+The MSP override command allows external control over the drone’s flight controller, bypassing its default behavior. In our project, we used the MSP override mask to grant full control to the Raspberry Pi, enabling it to manage the drone’s flight autonomously. To read more about how the drone flies itself, please have a look at [Further Work page](/furterwork) and [Applcation page](/application).
+
+To hand over control to the Raspberry Pi for the autopilot, the MSP override mask must be configured. This is done via the CLI in Betaflight. In our setup, we set the mask to 00001111, which grants the Raspberry Pi control over throttle, yaw, pitch, and roll. For more information, please have a look [here] (https://medium.com/illumination/fpv-autonomous-operation-with-betaflight-and-raspberry-pi-0caeb4b3ca69).
