@@ -32,11 +32,11 @@ Going forward, this could be augmented with a targeting system, based on an obje
 
 ## Theoretical Part: Concept for a Drone with a Gripper Arm
 
-Introduction
+#Introduction
 The use of drones equipped with a gripper arm opens up a wide range of applications—from inspection and delivery to rescue operations. In this project, the option of mounting a mechanical gripper arm onto an existing drone was investigated, with the goal of picking up and placing objects precisely.
 Since there was not enough time for a practical build, this document presents a theoretical plan demonstrating how such a modification could be implemented.
 
-Objective
+#Objective
 The goal is to develop a modular concept for a gripper arm that meets the following requirements:
 
 Take into account the drone’s weight and balance
@@ -47,8 +47,8 @@ Power supply from the onboard battery via Raspberry Pi or flight controller
 
 Control either via Raspberry Pi or directly through the flight controller and Radiomaster
 
-Mechanical Design
-3.1. Gripper Arm Design
+#Mechanical Design
+##3.1. Gripper Arm Design
 
 Simple ServoCity Servo-Driven Gripper Kit (servo motor included)
 
@@ -56,39 +56,40 @@ Lightweight construction at 101 g, to minimize impact on flight time and stabi
 
 Mounting system with quick-release mechanism or screw attachment on the underside of the drone
 
-3.2. Mounting
+##3.2. Mounting
 
 Center-of-gravity adjustment (a downward-hanging arm shifts the center of gravity)
 
 Dampers to reduce vibrations
 
-Electrical Design
-4.1. Servo Control
+#Electrical Design
+
+##4.1. Servo Control
 
 Standard servo (PWM-controlled, ~4–6 V supply)
 
 Connection and control via Raspberry Pi GPIO or flight controller
 
-4.2. Power Supply
+##4.2. Power Supply
 
 Power from 4–6 V via the Raspberry Pi / flight controller
 
 Secure cable routing to avoid contact with propellers
 
-Control Concept
-5.1. Via Flight Controller (Betaflight)
+#Control Concept
+##5.1. Via Flight Controller (Betaflight)
 
 Use of the “SERVO” tab in Betaflight
 
 Configuration of an AUX channel for open/close commands (Radiomaster transmitter)
 
-5.2. Via Raspberry Pi
+##5.2. Via Raspberry Pi
 
 Python script for PWM control of the servo
 
 Communication between Raspberry Pi and flight controller via MSP/Betaflight
 
-Software Aspect
+#Software Aspect
 
 Raspberry Pi can act as the control center for autonomous opening/closing
 
@@ -104,11 +105,11 @@ Reduced flight time (~10–20% less)
 
 Center-of-gravity adjustment may require shifting the battery position
 
-Safety Aspects
+#Safety Aspects
 
 Fail-safe mechanism: servo closes or opens in case of connection loss
 
 Mechanical lock to prevent unintended opening
 
-Conclusion and Outlook
+#Conclusion and Outlook
 Mounting a gripper arm on the drone is technically feasible and can be realized with existing components (servo, Raspberry Pi, flight controller). For practical operation, adjustments to weight and center of gravity are required. The presented design provides a basis for future implementation that could go beyond simple object gripping to enable autonomous handling.
