@@ -23,10 +23,23 @@ As one of the objectives of this project is to keep the drones cheap, this direc
 Once other options have been exhausted, it could be considered again.
 
 ## Betaflight-based Empty Autopilot
+
 [This article](https://medium.com/illumination/fpv-autonomous-operation-with-betaflight-and-raspberry-pi-0caeb4b3ca69) describes the implementation of an "empty" autopilot, that simply moves forward, based on Betaflight. 
 As this is the FC software of choice and the setups are quite similar, it makes sense to try and integrate this (for more information look at the application documentation).
 
-Going forward, this could be augmented with a targeting system, based on an object tracking mechanism (e.g. with OpenCV). To be continued.
+Going forward, this could be augmented with a targeting system, based on an object tracking mechanism (e.g. with [OpenCV](https://docs.opencv.org/4.x/dc/d6b/group__video__track.html)). Together with a purpose-trained TFLite model, this could be used to build a basic autopilot that follows predefined objects. 
+
+The main challenge here is using a singular camera to approximate the objects position in relation to the drone. This could be done with a [distance sensor](https://www.getfpv.com/hc-sr04-ultrasonic-distance-sensor-module.html) or a LiDAR sensor. However these sensors add additional weight and cost.
+
+To overcome this, several approaches can be tried out. One of these is [Pix2Pix](https://cir.nii.ac.jp/crid/1360298339716877696), which creates depth images from a monocular cameras, which is a machine learning based approach. The question remains, whether the limited hardware setup can cope with these challenging calculations. 
+
+## Ardupilot based systems
+
+Ardupilot is an autopilot software project, that was started in 2009. It was initially based on the Arduino, hence the name. The Ardupilot software is [compatible](https://ardupilot.org/copter/docs/common-autopilots.html) with the SpeedyBee F405 AIO (the FC used in this project). 
+
+It also provides a ground station software, called [MAVproxy](https://ardupilot.org/mavproxy/index.html). It supports the [MAVlink](https://mavlink.io/en/) protocol, for communication with the drone. MAVlink is an XML-based protocol. It uses a publish-subscribe model for data streams and point-to-point connections for its configuration sub-protocols. There are a variety of SDKs provided, which could perhaps be integrated with AI-functinoality.
+
+A couple of interesting approaches include [this one](https://sciresol.s3.us-east-2.amazonaws.com/IJST/Articles/2009/Issue-4/Article2.pdf).
 
 ## PX4 Autopilot software
 
@@ -96,3 +109,8 @@ Mechanical lock to prevent unintended opening
 
 ### Conclusion and Outlook
 Mounting a gripper arm on the drone is technically feasible and can be realized with existing components (servo, Raspberry Pi, flight controller). For practical operation, adjustments to weight and center of gravity are required. The presented design provides a basis for future implementation that could go beyond simple object gripping to enable autonomous handling.
+
+
+PX4 -> https://docs.px4.io/main/en/index.html
+
+[This](https://scholar.sun.ac.za/bitstreams/a5fc433a-022c-4dfd-b576-3f31dad8c8c5/download) paper introduces a vision-based autonomous UAV. 
