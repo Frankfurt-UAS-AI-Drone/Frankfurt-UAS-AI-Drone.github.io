@@ -88,7 +88,7 @@ The Angle mode is a stabilized flight mode that automatically levels the drone h
 Additionally, many other flight modes can be configured, such as Acro, Acro Trainer, Horizon, and others. For a complete overview of all available modes, please refer to the list [here](https://betaflight.com/docs/development/Modes).
 
 ### Mode Configuration
-In the Modes tab, we configured Arm on AUX1 and AUX2, Angle Mode on AUX5, and MSP Overwrite Mode on AUX4. The overwrite mode is active in the range from 1775 to 2100 and is controlled via a three-position switch, which is used for activating the autopilot. More details about this feature are provided on the [Application Page](/content/application.md).
+In the Modes tab, we configured Arm on AUX1 and AUX2, Angle Mode on AUX5, and MSP Override Mode on AUX4. The overwrite mode is active in the range from 1775 to 2100 and is controlled via a three-position switch, which is used for activating the autopilot. More details about this feature are provided on the [Application Page](/application).
 
 ## Port Configurations
 - UART3: Configured with the VTX (IRC Tramp) protocol under the Peripherals section to enable control of the video transmitter.
@@ -96,4 +96,4 @@ In the Modes tab, we configured Arm on AUX1 and AUX2, Angle Mode on AUX5, and MS
 - UART5: Assigned to GPS under Sensor Input, with a baud rate of 57600.
 - UART6: Configured with Serial RX to receive input from the radio receiver.
 
-## MSP Overwrite Mask
+## MSP Override Mask
