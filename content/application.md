@@ -136,30 +136,30 @@ def stream_and_infer_video(self):
 ## autopilot
 Because the autopilot is empty, the `AutopilotController` class only contains a limited amount of functionality. `init` initializes the values that are necessary for overriding the RC.
 
-### override_rc()
+### override_rc(self, ...)
 This method is a wrapper for the `send_msp_command` and is used to execute MSP_SET_RAW_RC. This only works for the channels that have been enabled by the `set msp_override_channels_mask` command in the FC.
 
 ```python
-def override_rc(roll, pitch, throttle, yaw, aux1, aux2, aux3, aux4):  
+def override_rc(self, roll, pitch, throttle, yaw, aux1, aux2, aux3, aux4):  
     data = [roll, 
             pitch, 
             throttle, 
             yaw, 
             aux1, aux2, aux3, aux4]
     
-    msp.send_msp_command(serial_port, msp.Command.MSP_SET_RAW_RC, data)
+    msp.send_msp_command(self.serial_port, msp.Command.MSP_SET_RAW_RC, data)
     
-    msp_command_id, payload = msp.read_msp_response(serial_port)
+    msp_command_id, payload = msp.read_msp_response(self.serial_port)
 
-    if msp_command_id != msp.MSP_SET_RAW_RC:
-        return False
-    return True
+    if msp_command_id == msp.Command.MSP_SET_RAW_RC:
+        return True
+    return False
 ```
 ### Flying
 Currently, the flying functionality consists of two methods: `prepare()` and `go_forward()`. Both of them wrap override_rc, and simply implement that the autopilot flies forward. It is important that the switch that triggers these methods also enables the MSP_OVERRIDE mode in the flight controller.
 
 ```python
-def go_forward():
+def go_forward(self):
     status = self.override_rc(
                 self.DEFAULT_ROLL,
                 self.DEFAULT_PITCH + 20, 
