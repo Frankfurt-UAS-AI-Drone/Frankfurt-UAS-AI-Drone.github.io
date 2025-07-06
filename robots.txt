@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://Frankfurt-UAS-AI-Drone.github.io/sitemap.xml

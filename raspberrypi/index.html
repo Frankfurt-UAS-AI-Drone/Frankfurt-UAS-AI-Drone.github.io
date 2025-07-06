@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="dark light">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https:&#x2F;&#x2F;Frankfurt-UAS-AI-Drone.github.io">
+
+    
+
+    
+    
+    
+        <title>
+            
+                3_Rapsberry-Pi
+            
+        </title>
+
+        
+            <meta property="og:title"
+                  content="3_Rapsberry-Pi" />
+        
+    
+
+    
+        
+            <meta property="og:description" content="Team &#x27;Bananastalker&#x27;" />
+        
+    
+
+    
+        
+            <meta name="description" content="Team &#x27;Bananastalker&#x27;" />
+        
+    
+
+    
+    
+
+    
+    
+        <link href=https://Frankfurt-UAS-AI-Drone.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+    <link rel="alternate"
+          type="application/atom+xml"
+          title="Masterprojekt: Drohnen mit künstlicher Intelligenz"
+          href="https://Frankfurt-UAS-AI-Drone.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://Frankfurt-UAS-AI-Drone.github.io/theme/light.css" />
+        <link id="darkModeStyle"
+              rel="stylesheet"
+              type="text/css"
+              href="https://Frankfurt-UAS-AI-Drone.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+
+    
+        <script src=https://Frankfurt-UAS-AI-Drone.github.io/js/themetoggle.js></script>
+
+        
+            <script>setTheme(getSavedTheme());</script>
+        
+    
+
+
+    <link rel="stylesheet"
+          type="text/css"
+          media="screen"
+          href="https://Frankfurt-UAS-AI-Drone.github.io/main.css" />
+
+    
+
+    <script defer
+                    src="https://Frankfurt-UAS-AI-Drone.github.io/search_index.en.js?h=4121a03cc048544de77e"></script>
+        <script defer
+                src="https://Frankfurt-UAS-AI-Drone.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script></head>
+
+
+    <body>
+        <div class="content">
+            <header>
+    <div class="main">
+        
+            <a href=https:&#x2F;&#x2F;Frankfurt-UAS-AI-Drone.github.io>Masterprojekt: Drohnen mit künstlicher Intelligenz</a>
+        
+
+
+        <div class="socials">
+            
+                <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;Frankfurt-UAS-AI-Drone" class="social">
+                    <img alt="github"
+                         src="https://Frankfurt-UAS-AI-Drone.github.io/icons/social/github.svg">
+                </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/dronehardware style="margin-left: 0.25em">Hardware</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/droneconfig style="margin-left: 0.25em">Config</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/raspberrypi style="margin-left: 0.25em">Raspberry_Pi</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/application style="margin-left: 0.25em">App</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/furtherwork style="margin-left: 0.25em">Further_Work</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/about style="margin-left: 0.25em">About</a>
+        
+
+        
+            <button id="search-button"
+                    class="search-button"
+                    title="$SHORTCUT to open search">
+                <img src="https://Frankfurt-UAS-AI-Drone.github.io/icons/search.svg"
+                     alt="Search"
+                     class="search-icon">
+            </button>
+
+            <div id="searchModal"
+                 class="search-modal js"
+                 role="dialog"
+                 aria-labelledby="modalTitle">
+                <div id="modal-content">
+                    <h1 id="modalTitle" class="page-header">Search</h1>
+                    <div id="searchBar">
+                        <input id="searchInput"
+                               role="combobox"
+                               autocomplete="off"
+                               spellcheck="false"
+                               aria-expanded="false"
+                               aria-controls="results-container"
+                               placeholder="Search..." />
+                        <button id="clear-search" class="clear-button" title="Clear search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="results-container">
+                        <div id="results-info">
+                            <span id="zero_results" style="display: none;">No results</span>
+                            <span id="one_result" style="display: none;">1 result</span>
+                            <span id="many_results" style="display: none;">$NUMBER results</span>
+                        </div>
+                        <div id="results" role="listbox"></div>
+                    </div>
+                </div>
+            </div>
+        
+
+        
+            <a id="dark-mode-toggle"
+               onclick="toggleTheme(); event.preventDefault();"
+               href="#">
+                <img src="https://Frankfurt-UAS-AI-Drone.github.io/icons/sun.svg"
+                     id="sun-icon"
+                     style="filter: invert(1)"
+                     alt="Light" />
+                <img src=https://Frankfurt-UAS-AI-Drone.github.io/icons/moon.svg id="moon-icon" alt="Dark" />
+            </a>
+
+            <!-- Inititialize the theme toggle icons -->
+            <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+            
+            
+    
+    <main>
+        <article>
+            <div class="title">
+                
+                
+    <div class="page-header">
+        3_Rapsberry-Pi<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2025-07-01</time>
+                    
+
+                    
+
+                    
+
+                    :: 417 Words
+
+                    
+                    
+
+                    
+                    
+
+                    
+
+                </div>
+            </div>
+
+            
+
+            
+            
+
+            <section class="body">
+                <p>The following section covers all aspects related to the Raspberry Pi used in our project. This includes its hardware setup, software configuration, and its role in running the AI application.</p>
+<h1 id="raspberry-pi">Raspberry Pi</h1>
+<p>As mentioned on the drone page, we used the single board computer <code>Raspberry Pi Zero WH PI3G</code> for the AI application. For the application to run, it is necessary to make some configurations and install specific packages onto the computer.</p>
+<h2 id="installations">Installations:</h2>
+<ul>
+<li>Install Python (default version of bullseye)</li>
+<li>Install <a href="https://coral.ai/docs/accelerator/get-started/#runtime-on-linux">libedgetpu1-std</a></li>
+<li>Install python3-pycoral (requires python &lt; 3.10)</li>
+<li>Install python3-opencv (requires python &lt; 3.12)</li>
+<li>Install python3-picamera2</li>
+<li>Install pip3 -&gt; MultiWii (requires python &gt; 3.7) and pyserial</li>
+<li>Install Docker Engine for <a href="https://docs.docker.com/engine/install/debian/">Debian</a></li>
+</ul>
+<p>All these installations can be made by using pip. For more information on how to use pip, please refere to the <a href="https://pip.pypa.io/en/stable/installation/">official documentation</a>.<br/></p>
+<h2 id="configurations">Configurations</h2>
+<h3 id="rpi-imager">RPi imager</h3>
+<p>Begin by installing the Raspberry Pi Imager appropriate for your operating system. Launch the application and select the target device as <code>Raspberry Pi Zero 2 W</code>. For the operating system, choose <code>Raspberry Pi OS Lite (64-bit, Bullseye)</code>. Proceed by selecting the SD card as the storage medium. Click Next to continue, then access the OS customization settings. Complete the configuration form, ensuring that SSH access is enabled—either via password authentication or public key. Finally, apply the configuration to initiate the imaging process.</p>
+<p>Before booting the Raspberry Pi for the first time, open the terminal and edit the <code>/boot/config.txt</code> file. Within this file, set <code>camera_auto_detect=0</code> to disable automatic camera detection, and specify the correct camera overlay by adding <code>dtoverlay=imx219</code>, which corresponds to the connected Pi camera module. This step ensures proper initialization of the camera hardware. For additional details and technical specifications, refer to the manufacturer's documentation available <a href="https://joy-it.net/de/products/rb-camera-jt-v2-120">here</a>.</p>
+<h3 id="first-boot">First Boot</h3>
+<h4 id="1-establish-connection-to-raspberry-pi">(1) Establish Connection to Raspberry Pi</h4>
+<p>After booting the Raspberry Pi, determine its IP address by checking your router’s connected devices list or using a network scanning tool. Once identified, establish a secure shell (SSH) connection using the following syntax in a terminal: <code>ssh pi@&lt;IP-ADDRESS&gt;</code>. Replace <code>&lt;IP-ADDRESS&gt;</code>with the acctual IP address of the raspberry.</p>
+<h4 id="2-verify-camera-functionality">(2) Verify camera functionality</h4>
+<p>To test the functionality of the connected camera module, use the pre-installed utility <code>libcamera-hello</code>. After connecting to the Raspberry Pi via SSH, use <code>libcamera-hello</code> to test wether the camera functions properly.</p>
+
+            </section>
+        </article>
+    </main>
+
+
+
+            
+                
+            
+
+            
+        </div>
+    </body>
+
+</html>

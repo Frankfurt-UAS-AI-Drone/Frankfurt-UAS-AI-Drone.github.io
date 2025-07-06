@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" class="dark light">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https:&#x2F;&#x2F;Frankfurt-UAS-AI-Drone.github.io">
+
+    
+
+    
+    
+    
+        <title>
+            
+                4_Application
+            
+        </title>
+
+        
+            <meta property="og:title"
+                  content="4_Application" />
+        
+    
+
+    
+        
+            <meta property="og:description" content="Team &#x27;Bananastalker&#x27;" />
+        
+    
+
+    
+        
+            <meta name="description" content="Team &#x27;Bananastalker&#x27;" />
+        
+    
+
+    
+    
+
+    
+    
+        <link href=https://Frankfurt-UAS-AI-Drone.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+    <link rel="alternate"
+          type="application/atom+xml"
+          title="Masterprojekt: Drohnen mit künstlicher Intelligenz"
+          href="https://Frankfurt-UAS-AI-Drone.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://Frankfurt-UAS-AI-Drone.github.io/theme/light.css" />
+        <link id="darkModeStyle"
+              rel="stylesheet"
+              type="text/css"
+              href="https://Frankfurt-UAS-AI-Drone.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+
+    
+        <script src=https://Frankfurt-UAS-AI-Drone.github.io/js/themetoggle.js></script>
+
+        
+            <script>setTheme(getSavedTheme());</script>
+        
+    
+
+
+    <link rel="stylesheet"
+          type="text/css"
+          media="screen"
+          href="https://Frankfurt-UAS-AI-Drone.github.io/main.css" />
+
+    
+
+    <script defer
+                    src="https://Frankfurt-UAS-AI-Drone.github.io/search_index.en.js?h=4121a03cc048544de77e"></script>
+        <script defer
+                src="https://Frankfurt-UAS-AI-Drone.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script></head>
+
+
+    <body>
+        <div class="content">
+            <header>
+    <div class="main">
+        
+            <a href=https:&#x2F;&#x2F;Frankfurt-UAS-AI-Drone.github.io>Masterprojekt: Drohnen mit künstlicher Intelligenz</a>
+        
+
+
+        <div class="socials">
+            
+                <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;Frankfurt-UAS-AI-Drone" class="social">
+                    <img alt="github"
+                         src="https://Frankfurt-UAS-AI-Drone.github.io/icons/social/github.svg">
+                </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/dronehardware style="margin-left: 0.25em">Hardware</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/droneconfig style="margin-left: 0.25em">Config</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/raspberrypi style="margin-left: 0.25em">Raspberry_Pi</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/application style="margin-left: 0.25em">App</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/furtherwork style="margin-left: 0.25em">Further_Work</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/about style="margin-left: 0.25em">About</a>
+        
+
+        
+            <button id="search-button"
+                    class="search-button"
+                    title="$SHORTCUT to open search">
+                <img src="https://Frankfurt-UAS-AI-Drone.github.io/icons/search.svg"
+                     alt="Search"
+                     class="search-icon">
+            </button>
+
+            <div id="searchModal"
+                 class="search-modal js"
+                 role="dialog"
+                 aria-labelledby="modalTitle">
+                <div id="modal-content">
+                    <h1 id="modalTitle" class="page-header">Search</h1>
+                    <div id="searchBar">
+                        <input id="searchInput"
+                               role="combobox"
+                               autocomplete="off"
+                               spellcheck="false"
+                               aria-expanded="false"
+                               aria-controls="results-container"
+                               placeholder="Search..." />
+                        <button id="clear-search" class="clear-button" title="Clear search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="results-container">
+                        <div id="results-info">
+                            <span id="zero_results" style="display: none;">No results</span>
+                            <span id="one_result" style="display: none;">1 result</span>
+                            <span id="many_results" style="display: none;">$NUMBER results</span>
+                        </div>
+                        <div id="results" role="listbox"></div>
+                    </div>
+                </div>
+            </div>
+        
+
+        
+            <a id="dark-mode-toggle"
+               onclick="toggleTheme(); event.preventDefault();"
+               href="#">
+                <img src="https://Frankfurt-UAS-AI-Drone.github.io/icons/sun.svg"
+                     id="sun-icon"
+                     style="filter: invert(1)"
+                     alt="Light" />
+                <img src=https://Frankfurt-UAS-AI-Drone.github.io/icons/moon.svg id="moon-icon" alt="Dark" />
+            </a>
+
+            <!-- Inititialize the theme toggle icons -->
+            <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+            
+            
+    
+    <main>
+        <article>
+            <div class="title">
+                
+                
+    <div class="page-header">
+        4_Application<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2025-07-03</time>
+                    
+
+                    
+
+                    
+
+                    :: 857 Words
+
+                    
+                    
+
+                    
+                    
+
+                    
+
+                </div>
+            </div>
+
+            
+
+            
+            
+
+            <section class="body">
+                <h1 id="overview">Overview</h1>
+<p>The main goal of the project was, to enable the drone to follow an object (i.e. a banana). For this <strong>object detection</strong> (with a targeting logic) and a way to <strong>send commands</strong> from the Raspberry Pi to the flight controller (FC). </br>
+A side goal was implementing a way to start the autopilot via the remote control (RC). To achieve this, a way to <strong>receive telemetry</strong> from the FC is required.</p>
+<p>We were not able to enable the drone to follow an object. The autopilot therefore, remains <em>empty</em>. It simply increases the pitch and throttle upon activation.</p>
+<h2 id="repos-sources">Repos (sources)</h2>
+<p>Parts of this work were based on existing code bases. <a href="https://github.com/under0tech/autopilot_bee_ept">"autopilot_bee_ept"</a> and <a href="https://github.com/thecognifly/YAMSPy">"YAMSPy"</a> are used for the communication with the flight controller, via the <a href="https://betaflight.com/docs/development/API/MSP-Extensions">"MulitWii Serial Protocol (MSP)"</a>. <a href="https://gist.github.com/reefwing/e9ba13aed51e83cb7245bb4e55b84dea">"reefwing"</a> provides an overview of various MSP codes that can be used to get telemetry from the FC and to send commands to it. </br></p>
+<h1 id="the-code">The Code</h1>
+<p>This section provides an overview of interesting sections of the code and some explanations if necessary.</p>
+<h2 id="main">main</h2>
+<p>At the core of the application lies a control loop that polls the FC for the status of the RC. Upon a state change in <em>AUX 3</em>, the <code>inference</code> component is triggered to run basic object detection either on a still or on a video (implemented as a stream). Upon a state change in <em>AUX 4</em>, the empty autopilot is triggered. Going forward, the autopilot is supposed to be based on a targeting mechanism.</p>
+<p>The <code>inference</code> component handles the communication with the camera and the Coral TPU. FC communication is enabled through the functions in the <code>msp</code> component.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span> </span><span style="color:#b48ead;">while </span><span style="color:#d08770;">True</span><span>:
+</span><span>        msp.</span><span style="color:#bf616a;">send_msp_request</span><span>(port, msp.Command.</span><span style="color:#bf616a;">MSP_RC</span><span>)
+</span><span>        code, payload = msp.</span><span style="color:#bf616a;">read_msp_response</span><span>(port)
+</span><span>        </span><span style="color:#b48ead;">assert </span><span>code == msp.Command.</span><span style="color:#bf616a;">MSP_RC
+</span><span>
+</span><span>        rc_state = msp.</span><span style="color:#bf616a;">process_MSP_RC</span><span>(payload)
+</span><span>        </span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#b48ead;">f</span><span>&#39;</span><span style="color:#a3be8c;">RC: </span><span>{rc_state}&#39;)
+</span><span>
+</span><span>        aux3_current = rc_state[&#39;</span><span style="color:#a3be8c;">aux3</span><span>&#39;]
+</span><span>        aux4_current = rc_state[&#39;</span><span style="color:#a3be8c;">aux4</span><span>&#39;]
+</span><span>
+</span><span>        </span><span style="color:#65737e;"># Stop video stream if AUX4 switches away from 2000 
+</span><span>        </span><span style="color:#b48ead;">if </span><span>video_thread and aux3_current != </span><span style="color:#d08770;">2000</span><span>:
+</span><span>            </span><span style="color:#96b5b4;">print</span><span>(&quot;</span><span style="color:#a3be8c;">Stop recording...</span><span>&quot;)
+</span><span>            controller.stop_event.</span><span style="color:#bf616a;">set</span><span>()
+</span><span>            video_thread.</span><span style="color:#bf616a;">join</span><span>(</span><span style="color:#bf616a;">timeout</span><span>=</span><span style="color:#d08770;">2</span><span>)
+</span><span>            video_thread = </span><span style="color:#d08770;">None
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">if </span><span>aux3_previous == </span><span style="color:#d08770;">1000 </span><span>and aux3_current == </span><span style="color:#d08770;">1503</span><span>:
+</span><span>            </span><span style="color:#96b5b4;">print</span><span>(&#39;</span><span style="color:#a3be8c;">Taking photo...</span><span>&#39;)
+</span><span>            controller.</span><span style="color:#bf616a;">take_and_infer_still</span><span>()
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">if </span><span>aux3_previous == </span><span style="color:#d08770;">1000 </span><span>and aux3_current == </span><span style="color:#d08770;">2000</span><span>:
+</span><span>            </span><span style="color:#96b5b4;">print</span><span>(&quot;</span><span style="color:#a3be8c;">Taking video...</span><span>&quot;)
+</span><span>            video_thread = threading.</span><span style="color:#bf616a;">Thread</span><span>(</span><span style="color:#bf616a;">target</span><span>=controller.stream_and_infer_video)
+</span><span>            video_thread.</span><span style="color:#bf616a;">start</span><span>()
+</span><span>           
+</span><span>        </span><span style="color:#b48ead;">if </span><span>aux4_previous == </span><span style="color:#d08770;">1000 </span><span>and aux4_current == </span><span style="color:#d08770;">1503</span><span>:
+</span><span>            </span><span style="color:#96b5b4;">print</span><span>(&#39;</span><span style="color:#a3be8c;">Preparing autopilot...</span><span>&#39;)
+</span><span>            prepared = autopilot.</span><span style="color:#bf616a;">prepare</span><span>()
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">elif </span><span>aux4_previous == </span><span style="color:#d08770;">1503 </span><span>and aux4_current == </span><span style="color:#d08770;">2000</span><span>:
+</span><span>            </span><span style="color:#96b5b4;">print</span><span>(&#39;</span><span style="color:#a3be8c;">Starting flight...</span><span>&#39;)
+</span><span>            autopilot.</span><span style="color:#bf616a;">go_forward</span><span>()
+</span><span>
+</span><span>        </span><span style="color:#65737e;"># Update values
+</span><span>        aux3_previous = aux3_current
+</span><span>        aux4_previous = aux4_current
+</span></code></pre>
+<h2 id="inference">inference</h2>
+<p>To enable communication with the camera and the Coral TPU, the <code>InferenceController</code> class is implemented, with the following methods.</p>
+<h3 id="init-self"><strong>init</strong>(self)</h3>
+<p><code>__init__</code> initializes the controller with two different models<a href="https://github.com/Frankfurt-UAS-AI-Drone/AI-Drone">(links in repo)</a>. <code>effdet_lite3</code> (512x512 / 107.6 ms) for stills and <code>ssd_mobnet2_tf2</code> (300x300 / 7.6 ms) for streams. The reason for using two different models is performance. While the former model offers a higher accuracy, it is not usable for videos as it only manages around 3 FPS in all calculations. The latter model musters a 10 FPS stream, which is usable. None of these models are useful in production. For good production performance, it is necessary to train a purpose-specific model.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#bf616a;">self</span><span>.still_interpreter = </span><span style="color:#bf616a;">make_interpreter</span><span>(&quot;</span><span style="color:#a3be8c;">models/effdet_lite3/effdet_lite3.tflite</span><span>&quot;)
+</span><span style="color:#bf616a;">self</span><span>.still_interpreter.</span><span style="color:#bf616a;">allocate_tensors</span><span>()
+</span><span style="color:#bf616a;">self</span><span>.still_size = common.</span><span style="color:#bf616a;">input_size</span><span>(</span><span style="color:#bf616a;">self</span><span>.still_interpreter)
+</span><span style="color:#bf616a;">self</span><span>.still_labels = </span><span style="color:#bf616a;">read_label_file</span><span>(&quot;</span><span style="color:#a3be8c;">models/effdet_lite3/effdet_lite3.labels</span><span>&quot;)
+</span><span>
+</span><span style="color:#bf616a;">self</span><span>.video_interpreter = </span><span style="color:#bf616a;">make_interpreter</span><span>(&#39;</span><span style="color:#a3be8c;">models/ssd_mobnet2/ssd_mobnet2_tf2.tflite</span><span>&#39;)
+</span><span style="color:#bf616a;">self</span><span>.video_interpreter.</span><span style="color:#bf616a;">allocate_tensors</span><span>()
+</span><span style="color:#bf616a;">self</span><span>.video_size = common.</span><span style="color:#bf616a;">input_size</span><span>(</span><span style="color:#bf616a;">self</span><span>.video_interpreter)
+</span><span style="color:#bf616a;">self</span><span>.video_labels = </span><span style="color:#bf616a;">read_label_file</span><span>(&quot;</span><span style="color:#a3be8c;">models/ssd_mobnet2/ssd_mobnet2_tf2.labels</span><span>&quot;)
+</span></code></pre>
+<p>The camera is configured to use <code>RGB888</code> because this is the configuration required by the models. By default, <code>Picamera2</code> includes an alpha channel, which would require every frame to be resized, costing performance.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#bf616a;">self</span><span>.video_config = </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">create_video_configuration</span><span>(</span><span style="color:#bf616a;">main</span><span>= {&quot;</span><span style="color:#a3be8c;">size</span><span>&quot;: </span><span style="color:#bf616a;">self</span><span>.video_size, &#39;</span><span style="color:#a3be8c;">format</span><span>&#39;: &#39;</span><span style="color:#a3be8c;">RGB888</span><span>&#39;}, </span><span style="color:#bf616a;">controls</span><span>={&quot;</span><span style="color:#a3be8c;">FrameRate</span><span>&quot;: </span><span style="color:#bf616a;">self</span><span>.recording_fps})
+</span><span style="color:#bf616a;">self</span><span>.still_config = </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">create_still_configuration</span><span>({&quot;</span><span style="color:#a3be8c;">size</span><span>&quot;: </span><span style="color:#bf616a;">self</span><span>.still_size, &#39;</span><span style="color:#a3be8c;">format</span><span>&#39;: &#39;</span><span style="color:#a3be8c;">RGB888</span><span>&#39;})
+</span></code></pre>
+<h3 id="process-frame-self-frame-video-false">process_frame(self, frame, video=False)</h3>
+<p>The process_frame function handles the object detection process for a single frame and draws the boxes and annotations around any detected objects. The score threshold can be used to modify the required confidence for an object. This is a tradeoff between accuracy and detecting anything at all. Especially for the smaller <code>ssd_mobnet2_tf2</code>, this can become quite difficult for anything other than a person.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>objects = detect.</span><span style="color:#bf616a;">get_objects</span><span>(</span><span style="color:#bf616a;">self</span><span>.still_interpreter, </span><span style="color:#bf616a;">score_threshold</span><span>=</span><span style="color:#d08770;">0.7</span><span>)
+</span><span>labels = </span><span style="color:#bf616a;">self</span><span>.still_labels
+</span><span>
+</span><span style="color:#b48ead;">for </span><span>obj </span><span style="color:#b48ead;">in </span><span>objects:
+</span><span>    bbox = obj.bbox
+</span><span>    cv2.</span><span style="color:#bf616a;">rectangle</span><span>(frame, (bbox.xmin, bbox.ymin), (bbox.xmax, bbox.ymax), (</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">255</span><span>, </span><span style="color:#d08770;">0</span><span>), </span><span style="color:#d08770;">2</span><span>)
+</span><span>    cv2.</span><span style="color:#bf616a;">putText</span><span>(frame, </span><span style="color:#b48ead;">f</span><span>&#39;{obj.id} {labels.</span><span style="color:#bf616a;">get</span><span>(obj.id, obj.id)} {obj.score</span><span style="color:#d08770;">:.2f</span><span>}&#39;, (bbox.xmin, bbox.ymin - </span><span style="color:#d08770;">10</span><span>), cv2.</span><span style="color:#bf616a;">FONT_HERSHEY_SIMPLEX</span><span>, </span><span style="color:#d08770;">0.5</span><span>, (</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">255</span><span>, </span><span style="color:#d08770;">0</span><span>), </span><span style="color:#d08770;">2</span><span>)
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#b48ead;">f</span><span>&quot;</span><span style="color:#a3be8c;">Detected: </span><span>{labels.</span><span style="color:#bf616a;">get</span><span>(obj.id, obj.id)}</span><span style="color:#a3be8c;"> (ID: </span><span>{obj.id}</span><span style="color:#a3be8c;">, Score: </span><span>{obj.score</span><span style="color:#d08770;">:.2f</span><span>}</span><span style="color:#a3be8c;">)</span><span>&quot;)
+</span></code></pre>
+<h3 id="take-and-infer-still-self">take_and_infer_still(self)</h3>
+<p>This function is very straight forward. The onlything noteworthy is the line below. It allows to switch between different configurations and optimize the camera for a still instead of a video.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">take_and_infer_still</span><span>(</span><span style="color:#bf616a;">self</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">switch_mode</span><span>(</span><span style="color:#bf616a;">self</span><span>.still_config)
+</span><span>        </span><span style="color:#d08770;">...
+</span></code></pre>
+<h3 id="stream-and-infer-video-self">stream_and_infer_video(self)</h3>
+<p>A multi-threaded model is used for video inference. When AUX 3 is set to record a video on the RC, a new thread is started to record the video. The video is implemented as a stream of images, not as a video itself. This implementation only manages 10 FPS. However, it is in real-time, which could be useful when building functionalities on top of it.</p>
+<p>When AUX 3 is switched away from recording mode, the stop event is set, and the controller stops recording. Upon ending the recording, it is very important to execute <code>out.release()</code> otherwise, the resulting video file will be corrupted.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">stream_and_infer_video</span><span>(</span><span style="color:#bf616a;">self</span><span>):
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.stop_event.</span><span style="color:#bf616a;">clear</span><span>()
+</span><span>    </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">switch_mode</span><span>(</span><span style="color:#bf616a;">self</span><span>.video_config)
+</span><span>    out = cv2.</span><span style="color:#bf616a;">VideoWriter</span><span>(</span><span style="color:#b48ead;">f</span><span>&quot;</span><span style="color:#a3be8c;">/home/pi/drone/videos/</span><span>{datetime.</span><span style="color:#bf616a;">today</span><span>().</span><span style="color:#bf616a;">strftime</span><span>(&#39;</span><span style="color:#d08770;">%Y</span><span style="color:#a3be8c;">-</span><span style="color:#d08770;">%m</span><span style="color:#a3be8c;">-</span><span style="color:#d08770;">%d</span><span style="color:#a3be8c;">_</span><span style="color:#d08770;">%H</span><span style="color:#a3be8c;">-</span><span style="color:#d08770;">%M</span><span style="color:#a3be8c;">-</span><span style="color:#d08770;">%S</span><span>&#39;)}</span><span style="color:#a3be8c;">.avi</span><span>&quot;, cv2.</span><span style="color:#bf616a;">VideoWriter_fourcc</span><span>(*&#39;</span><span style="color:#a3be8c;">XVID</span><span>&#39;), </span><span style="color:#bf616a;">self</span><span>.playback_fps, </span><span style="color:#bf616a;">self</span><span>.video_size)
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">try</span><span>: 
+</span><span>        </span><span style="color:#b48ead;">while </span><span>not </span><span style="color:#bf616a;">self</span><span>.stop_event.</span><span style="color:#bf616a;">is_set</span><span>():
+</span><span>            recorded_frame = </span><span style="color:#bf616a;">self</span><span>.camera.</span><span style="color:#bf616a;">capture_array</span><span>()
+</span><span>            processed_frame = </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">process_frame</span><span>(recorded_frame, </span><span style="color:#bf616a;">video</span><span>=</span><span style="color:#d08770;">True</span><span>)
+</span><span>            out.</span><span style="color:#bf616a;">write</span><span>(processed_frame)
+</span><span>    </span><span style="color:#b48ead;">except </span><span>Exception </span><span style="color:#b48ead;">as </span><span>e:
+</span><span>        </span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#b48ead;">f</span><span>&quot;</span><span style="color:#a3be8c;">Recording error: </span><span>{e}&quot;)
+</span><span>    </span><span style="color:#b48ead;">finally</span><span>:
+</span><span>        </span><span style="color:#96b5b4;">print</span><span>(&quot;</span><span style="color:#a3be8c;">Exiting...</span><span>&quot;)
+</span><span>        out.</span><span style="color:#bf616a;">release</span><span>()
+</span></code></pre>
+<h2 id="autopilot">autopilot</h2>
+<p>Because the autopilot is empty, the <code>AutopilotController</code> class only contains a limited amount of functionality. <code>init</code> initializes the values that are necessary for overriding the RC.</p>
+<h3 id="override-rc-self">override_rc(self, ...)</h3>
+<p>This method is a wrapper for the <code>send_msp_command</code> and is used to execute MSP_SET_RAW_RC. This only works for the channels that have been enabled by the <code>set msp_override_channels_mask</code> command in the FC.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">override_rc</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">roll</span><span>, </span><span style="color:#bf616a;">pitch</span><span>, </span><span style="color:#bf616a;">throttle</span><span>, </span><span style="color:#bf616a;">yaw</span><span>, </span><span style="color:#bf616a;">aux1</span><span>, </span><span style="color:#bf616a;">aux2</span><span>, </span><span style="color:#bf616a;">aux3</span><span>, </span><span style="color:#bf616a;">aux4</span><span>):  
+</span><span>    data = [roll, 
+</span><span>            pitch, 
+</span><span>            throttle, 
+</span><span>            yaw, 
+</span><span>            aux1, aux2, aux3, aux4]
+</span><span>    
+</span><span>    msp.</span><span style="color:#bf616a;">send_msp_command</span><span>(</span><span style="color:#bf616a;">self</span><span>.serial_port, msp.Command.</span><span style="color:#bf616a;">MSP_SET_RAW_RC</span><span>, data)
+</span><span>    
+</span><span>    msp_command_id, payload = msp.</span><span style="color:#bf616a;">read_msp_response</span><span>(</span><span style="color:#bf616a;">self</span><span>.serial_port)
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">if </span><span>msp_command_id == msp.Command.</span><span style="color:#bf616a;">MSP_SET_RAW_RC</span><span>:
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">True
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">False
+</span></code></pre>
+<h3 id="flying">Flying</h3>
+<p>Currently, the flying functionality consists of two methods: <code>prepare()</code> and <code>go_forward()</code>. Both of them wrap override_rc, and simply implement that the autopilot flies forward. It is important that the switch that triggers these methods also enables the MSP_OVERRIDE mode in the flight controller.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">go_forward</span><span>(</span><span style="color:#bf616a;">self</span><span>):
+</span><span>    status = </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">override_rc</span><span>(
+</span><span>                </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">DEFAULT_ROLL</span><span>,
+</span><span>                </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">DEFAULT_PITCH </span><span>+ </span><span style="color:#d08770;">20</span><span>, 
+</span><span>                </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">DEFAULT_THROTTLE </span><span>+ </span><span style="color:#d08770;">100</span><span>, 
+</span><span>                </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">DEFAULT_YAW</span><span>, 
+</span><span>                </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">AUX1</span><span>, </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">AUX2</span><span>, </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">AUX3</span><span>, </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">AUX4</span><span>) 
+</span><span>    </span><span style="color:#b48ead;">return </span><span>status
+</span></code></pre>
+<h2 id="msp">msp</h2>
+<p>The <code>Command</code> enum contains the necessary command IDs for the implemented functionalities. <code>send_msp_request</code> is used to send telemetry requests, and <code>send_msp_command</code> is used to send instructions to the FC. The main difference is that the latter allows for a payload that contains the instructions. This is used to send RC values to the flight controller, to control it from the Pi.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">send_msp_command</span><span>(</span><span style="color:#bf616a;">serial_port</span><span>, </span><span style="color:#bf616a;">msp_command_id</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>    payload = </span><span style="color:#bf616a;">bytearray</span><span>()
+</span><span>    </span><span style="color:#b48ead;">for </span><span>value </span><span style="color:#b48ead;">in </span><span>data:
+</span><span>        payload += struct.</span><span style="color:#bf616a;">pack</span><span>(&#39;</span><span style="color:#a3be8c;">&lt;1H</span><span>&#39;, value)
+</span><span>
+</span><span>    header = </span><span style="color:#b48ead;">b</span><span>&#39;</span><span style="color:#a3be8c;">$M&lt;</span><span>&#39;
+</span><span>    length = </span><span style="color:#96b5b4;">len</span><span>(payload)
+</span><span>    checksum = </span><span style="color:#bf616a;">get_checksum</span><span>(msp_command_id, payload)
+</span><span>
+</span><span>    msp_package = header + </span><span style="color:#bf616a;">bytes</span><span>([length, msp_command_id]) + payload + </span><span style="color:#bf616a;">bytes</span><span>([checksum])
+</span><span>    serial_port.</span><span style="color:#bf616a;">write</span><span>(msp_package)
+</span></code></pre>
+<p><code>read_msp_response</code> is used to deconstruct the response of the FC, so its payload can be processed with the command-specific functions (e.g. <code>process_MSP_STATUS</code>). With the help of <code>readbytes</code>, these functions turn the response into a format that is readable by humans.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">process_MSP_STATUS</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    cycleTime = </span><span style="color:#bf616a;">readbytes</span><span>(data, </span><span style="color:#bf616a;">size</span><span>=</span><span style="color:#d08770;">16</span><span>, </span><span style="color:#bf616a;">unsigned</span><span>=</span><span style="color:#d08770;">True</span><span>)
+</span><span>    i2cError = </span><span style="color:#bf616a;">readbytes</span><span>(data, </span><span style="color:#bf616a;">size</span><span>=</span><span style="color:#d08770;">16</span><span>, </span><span style="color:#bf616a;">unsigned</span><span>=</span><span style="color:#d08770;">True</span><span>)
+</span><span>    activeSensors = </span><span style="color:#bf616a;">readbytes</span><span>(data, </span><span style="color:#bf616a;">size</span><span>=</span><span style="color:#d08770;">16</span><span>, </span><span style="color:#bf616a;">unsigned</span><span>=</span><span style="color:#d08770;">True</span><span>)
+</span><span>    mode = </span><span style="color:#bf616a;">readbytes</span><span>(data, </span><span style="color:#bf616a;">size</span><span>=</span><span style="color:#d08770;">32</span><span>, </span><span style="color:#bf616a;">unsigned</span><span>=</span><span style="color:#d08770;">True</span><span>)
+</span><span>    profile = </span><span style="color:#bf616a;">readbytes</span><span>(data, </span><span style="color:#bf616a;">size</span><span>=</span><span style="color:#d08770;">8</span><span>, </span><span style="color:#bf616a;">unsigned</span><span>=</span><span style="color:#d08770;">True</span><span>)
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">return </span><span>{
+</span><span>        &#39;</span><span style="color:#a3be8c;">cycleTime</span><span>&#39;: cycleTime,
+</span><span>        &#39;</span><span style="color:#a3be8c;">i2cError</span><span>&#39;: i2cError,
+</span><span>        &#39;</span><span style="color:#a3be8c;">activeSensors</span><span>&#39;: activeSensors,
+</span><span>        &#39;</span><span style="color:#a3be8c;">mode</span><span>&#39;: mode,
+</span><span>        &#39;</span><span style="color:#a3be8c;">profile</span><span>&#39;: profile,
+</span><span>    }
+</span></code></pre>
+
+            </section>
+        </article>
+    </main>
+
+
+
+            
+                
+            
+
+            
+        </div>
+    </body>
+
+</html>

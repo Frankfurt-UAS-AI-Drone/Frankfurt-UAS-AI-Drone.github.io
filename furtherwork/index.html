@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" class="dark light">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https:&#x2F;&#x2F;Frankfurt-UAS-AI-Drone.github.io">
+
+    
+
+    
+    
+    
+        <title>
+            
+                5_Further-Work
+            
+        </title>
+
+        
+            <meta property="og:title"
+                  content="5_Further-Work" />
+        
+    
+
+    
+        
+            <meta property="og:description" content="Team &#x27;Bananastalker&#x27;" />
+        
+    
+
+    
+        
+            <meta name="description" content="Team &#x27;Bananastalker&#x27;" />
+        
+    
+
+    
+    
+
+    
+    
+        <link href=https://Frankfurt-UAS-AI-Drone.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+    <link rel="alternate"
+          type="application/atom+xml"
+          title="Masterprojekt: Drohnen mit künstlicher Intelligenz"
+          href="https://Frankfurt-UAS-AI-Drone.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://Frankfurt-UAS-AI-Drone.github.io/theme/light.css" />
+        <link id="darkModeStyle"
+              rel="stylesheet"
+              type="text/css"
+              href="https://Frankfurt-UAS-AI-Drone.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+
+    
+        <script src=https://Frankfurt-UAS-AI-Drone.github.io/js/themetoggle.js></script>
+
+        
+            <script>setTheme(getSavedTheme());</script>
+        
+    
+
+
+    <link rel="stylesheet"
+          type="text/css"
+          media="screen"
+          href="https://Frankfurt-UAS-AI-Drone.github.io/main.css" />
+
+    
+
+    <script defer
+                    src="https://Frankfurt-UAS-AI-Drone.github.io/search_index.en.js?h=4121a03cc048544de77e"></script>
+        <script defer
+                src="https://Frankfurt-UAS-AI-Drone.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script></head>
+
+
+    <body>
+        <div class="content">
+            <header>
+    <div class="main">
+        
+            <a href=https:&#x2F;&#x2F;Frankfurt-UAS-AI-Drone.github.io>Masterprojekt: Drohnen mit künstlicher Intelligenz</a>
+        
+
+
+        <div class="socials">
+            
+                <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;Frankfurt-UAS-AI-Drone" class="social">
+                    <img alt="github"
+                         src="https://Frankfurt-UAS-AI-Drone.github.io/icons/social/github.svg">
+                </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/dronehardware style="margin-left: 0.25em">Hardware</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/droneconfig style="margin-left: 0.25em">Config</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/raspberrypi style="margin-left: 0.25em">Raspberry_Pi</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/application style="margin-left: 0.25em">App</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/furtherwork style="margin-left: 0.25em">Further_Work</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/about style="margin-left: 0.25em">About</a>
+        
+
+        
+            <button id="search-button"
+                    class="search-button"
+                    title="$SHORTCUT to open search">
+                <img src="https://Frankfurt-UAS-AI-Drone.github.io/icons/search.svg"
+                     alt="Search"
+                     class="search-icon">
+            </button>
+
+            <div id="searchModal"
+                 class="search-modal js"
+                 role="dialog"
+                 aria-labelledby="modalTitle">
+                <div id="modal-content">
+                    <h1 id="modalTitle" class="page-header">Search</h1>
+                    <div id="searchBar">
+                        <input id="searchInput"
+                               role="combobox"
+                               autocomplete="off"
+                               spellcheck="false"
+                               aria-expanded="false"
+                               aria-controls="results-container"
+                               placeholder="Search..." />
+                        <button id="clear-search" class="clear-button" title="Clear search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="results-container">
+                        <div id="results-info">
+                            <span id="zero_results" style="display: none;">No results</span>
+                            <span id="one_result" style="display: none;">1 result</span>
+                            <span id="many_results" style="display: none;">$NUMBER results</span>
+                        </div>
+                        <div id="results" role="listbox"></div>
+                    </div>
+                </div>
+            </div>
+        
+
+        
+            <a id="dark-mode-toggle"
+               onclick="toggleTheme(); event.preventDefault();"
+               href="#">
+                <img src="https://Frankfurt-UAS-AI-Drone.github.io/icons/sun.svg"
+                     id="sun-icon"
+                     style="filter: invert(1)"
+                     alt="Light" />
+                <img src=https://Frankfurt-UAS-AI-Drone.github.io/icons/moon.svg id="moon-icon" alt="Dark" />
+            </a>
+
+            <!-- Inititialize the theme toggle icons -->
+            <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+            
+            
+    
+    <main>
+        <article>
+            <div class="title">
+                
+                
+    <div class="page-header">
+        5_Further-Work<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2025-07-01</time>
+                    
+
+                    
+
+                    
+
+                    :: 1028 Words
+
+                    
+                    
+
+                    
+                    
+
+                    
+
+                </div>
+            </div>
+
+            
+
+            
+            
+
+            <section class="body">
+                <h1 id="autopilot-integration">Autopilot Integration</h1>
+<p>An autopilot is a system that enables the drone to fly autonomously (e.g. between different waypoints).
+Although the terms are sometimes used interchangeably, an autopilot is usually an extension of a flight controller (FC). It can be seen as an advanced firmware that has more capabilities than a classic FC.</p>
+<p>It utilizes sensors, like the accelerometer, gyroscope, and barometer, to allow the autopilot to orient itself.
+If the drone has a GPS module, it can utilize this to travel between predefined waypoints.</p>
+<h2 id="prebuilt-solutions">Prebuilt Solutions</h2>
+<p>There are many prebuilt autopilot systems available, like this <a href="https://www.getfpv.com/electronics/autopilot-systems/holybro-pixhawk-6x-pro-fc-standard-set-w-pm02d-hv.html">one</a>.
+Many of them are based on the <a href="https://github.com/pixhawk/Pixhawk-Standards">Pixhawk</a> hardware specification.
+However, these prebuilt systems can be quite expensive. One would usually have to invest several hundred Euros to purchase such a system.</p>
+<p>As one of the objectives of this project is to keep the drones cheap, this direction will be ruled out for the time being.
+Once other options have been exhausted, it could be considered again.</p>
+<h2 id="betaflight-based-empty-autopilot">Betaflight-based Empty Autopilot</h2>
+<p><a href="https://medium.com/illumination/fpv-autonomous-operation-with-betaflight-and-raspberry-pi-0caeb4b3ca69">This article</a> describes the implementation of an "empty" autopilot that simply moves forward, based on Betaflight.
+As this is the FC software of choice and the setups are quite similar, it makes sense to try and integrate this (for more information, look at the <a href="/application">application documentation</a>).</p>
+<p>Going forward, this could be augmented with a targeting system, based on an object tracking mechanism (e.g., with <a href="https://docs.opencv.org/4.x/dc/d6b/group__video__track.html">OpenCV</a>). Together with a purpose-trained TFLite model, this could be used to build a basic autopilot that follows predefined objects.</p>
+<p>The main challenge here is using a singular camera to approximate the object's position in relation to the drone. This could be done with a <a href="https://www.getfpv.com/hc-sr04-ultrasonic-distance-sensor-module.html">distance sensor</a> or a LiDAR sensor. However, these sensors add additional weight and cost.</p>
+<p>To overcome this, several approaches can be tried out. One of these is <a href="https://cir.nii.ac.jp/crid/1360298339716877696">Pix2Pix</a>, which creates depth images from a monocular camera in a machine learning based approach. The question remains whether the limited hardware setup can cope with these challenging calculations.</p>
+<h2 id="ardupilot-based-systems">Ardupilot-based Systems</h2>
+<p>Ardupilot is an autopilot software project that was started in 2009. It was initially based on the Arduino, hence the name. The Ardupilot software is <a href="https://ardupilot.org/copter/docs/common-autopilots.html">compatible</a> with the SpeedyBee F405 AIO (the FC used in this project).</p>
+<p>It also provides a ground station software, called <a href="https://ardupilot.org/mavproxy/index.html">MAVproxy</a>. It supports the <a href="https://mavlink.io/en/">MAVlink</a> protocol for communication with the drone. MAVlink is an XML-based protocol. It uses a publish-subscribe model for data streams and point-to-point connections for its configuration sub-protocols. There are a variety of SDKs provided, which could perhaps be integrated with AI-functionality.</p>
+<p>A couple of interesting approaches include <a href="https://sciresol.s3.us-east-2.amazonaws.com/IJST/Articles/2009/Issue-4/Article2.pdf">this one</a>.</p>
+<h2 id="px4-autopilot-software">PX4 Autopilot Software</h2>
+<p>A <a href="https://docs.px4.io/main/en/index.html">PX4</a> based autopilot is also an interesting route however, the FC used in this project is <a href="https://docs.px4.io/main/en/flight_controller/">not supported</a>. Alternatively it is supported, to run the autopilot on a <a href="https://docs.px4.io/main/en/flight_controller/autopilot_experimental.html">Raspberry Pi</a> as an external Autopilot. This requires a Raspberry Pi 2/3/4 with Navio2 or PilotPi Shield. PX4 also uses the MAVlink protocol to talk to ground stations and the outside world.</p>
+<p><a href="https://scholar.sun.ac.za/bitstreams/a5fc433a-022c-4dfd-b576-3f31dad8c8c5/download">This</a> paper introduces a vision-based autonomous unmanned aerial vehicle (UAV) based on PX4. It builds on the ArUco library to estimate position and attitude measurements with the help of augmented reality markers. The vision-based state estimator successfully estimates the position, velocity and attitude of the UAV. This allows for waypoint navigation without using the standard GPS-based state estimator.</p>
+<h1 id="payload-system-integration">Payload System Integration</h1>
+<p>The use of drones equipped with a gripper arm opens up a wide range of applications—from inspection and delivery to rescue operations. In this project, the option of mounting a mechanical gripper arm onto an existing drone was investigated, with the goal of picking up and placing objects precisely.
+Since there was not enough time for a practical build, this document presents a theoretical plan demonstrating how such a modification could be implemented.</p>
+<p>The goal is to develop a concept for a gripper arm that meets the following requirements:</p>
+<ul>
+<li>Take into account the drone’s weight and balance</li>
+<li>Control via Raspberry Pi or with an auxiliray (AUX) switch on the Radiomaster (RC)</li>
+<li>Power supply from the onboard battery via Raspberry Pi or FC</li>
+</ul>
+<h2 id="mechanical-design-and-mounting">Mechanical Design and Mounting</h2>
+<p>Simple <a href="https://eu.robotshop.com/products/servocity-servo-driven-gripper-kit-servo-included/">ServoCity Servo-Driven Gripper Kit</a>:</p>
+<ul>
+<li>Lightweight construction at 101 g, to minimize impact on flight time and stability</li>
+<li>Mounting: Quick-release mechanism or screw attachment on the drones underside
+<ul>
+<li>Challenge: A downward-hanging arm shifts the center of gravity</li>
+<li>Also: Dampers to reduce vibrations</li>
+</ul>
+</li>
+</ul>
+<h2 id="electrical-design-servo-control-and-power-supply">Electrical Design (Servo Control and Power Supply)</h2>
+<ul>
+<li>Standard servo (PWM-controlled, ~4–6 V supply)</li>
+<li>Connection and control via Raspberry Pi GPIO or FC</li>
+<li>Power supply (4–6 V) via the Raspberry Pi / FC</li>
+<li>Challenge: Secure cable routing to avoid contact with propellers</li>
+</ul>
+<h2 id="control-concept">Control Concept</h2>
+<ul>
+<li>AUX channel for open/close commands via the RC</li>
+<li>Configuration via the “SERVO” tab in Betaflight</li>
+<li>Alternatively: Python script for PWM control of the servo
+<ul>
+<li>This could possibly integrated with object detection</li>
+<li>Communication between Raspberry Pi and FC via an MSP connection</li>
+</ul>
+</li>
+</ul>
+<h2 id="safety-aspects">Safety Aspects</h2>
+<ul>
+<li>Integrate a Fail-safe mechanism: Servo closes/opens in case of connection loss</li>
+<li>Mechanical lock to prevent unintended opening</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Mounting a gripper arm on the drone is technically feasible and can be realized with existing components (servo, Raspberry Pi, FC). For practical operation, adjustments to weight and center of gravity are required. The presented design provides a basis for future implementation that could go beyond simple object gripping to enable autonomous handling, albeit with reduced overall flight time, due to the additional weight.</p>
+
+            </section>
+        </article>
+    </main>
+
+
+
+            
+                
+            
+
+            
+        </div>
+    </body>
+
+</html>

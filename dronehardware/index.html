@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" class="dark light">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https:&#x2F;&#x2F;Frankfurt-UAS-AI-Drone.github.io">
+
+    
+
+    
+    
+    
+        <title>
+            
+                1_Hardware
+            
+        </title>
+
+        
+            <meta property="og:title"
+                  content="1_Hardware" />
+        
+    
+
+    
+        
+            <meta property="og:description" content="Team &#x27;Bananastalker&#x27;" />
+        
+    
+
+    
+        
+            <meta name="description" content="Team &#x27;Bananastalker&#x27;" />
+        
+    
+
+    
+    
+
+    
+    
+        <link href=https://Frankfurt-UAS-AI-Drone.github.io/fonts.css rel="stylesheet" />
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+    <link rel="alternate"
+          type="application/atom+xml"
+          title="Masterprojekt: Drohnen mit künstlicher Intelligenz"
+          href="https://Frankfurt-UAS-AI-Drone.github.io/atom.xml">
+
+
+    
+    
+        <link rel="stylesheet"
+              type="text/css"
+              href="https://Frankfurt-UAS-AI-Drone.github.io/theme/light.css" />
+        <link id="darkModeStyle"
+              rel="stylesheet"
+              type="text/css"
+              href="https://Frankfurt-UAS-AI-Drone.github.io/theme/dark.css" />
+    
+
+    <!-- Set the correct theme in the script -->
+
+    
+        <script src=https://Frankfurt-UAS-AI-Drone.github.io/js/themetoggle.js></script>
+
+        
+            <script>setTheme(getSavedTheme());</script>
+        
+    
+
+
+    <link rel="stylesheet"
+          type="text/css"
+          media="screen"
+          href="https://Frankfurt-UAS-AI-Drone.github.io/main.css" />
+
+    
+
+    <script defer
+                    src="https://Frankfurt-UAS-AI-Drone.github.io/search_index.en.js?h=4121a03cc048544de77e"></script>
+        <script defer
+                src="https://Frankfurt-UAS-AI-Drone.github.io/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script></head>
+
+
+    <body>
+        <div class="content">
+            <header>
+    <div class="main">
+        
+            <a href=https:&#x2F;&#x2F;Frankfurt-UAS-AI-Drone.github.io>Masterprojekt: Drohnen mit künstlicher Intelligenz</a>
+        
+
+
+        <div class="socials">
+            
+                <a rel="me" href="https:&#x2F;&#x2F;github.com&#x2F;Frankfurt-UAS-AI-Drone" class="social">
+                    <img alt="github"
+                         src="https://Frankfurt-UAS-AI-Drone.github.io/icons/social/github.svg">
+                </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/dronehardware style="margin-left: 0.25em">Hardware</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/droneconfig style="margin-left: 0.25em">Config</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/raspberrypi style="margin-left: 0.25em">Raspberry_Pi</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/application style="margin-left: 0.25em">App</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/furtherwork style="margin-left: 0.25em">Further_Work</a>
+        
+            <a href=https://Frankfurt-UAS-AI-Drone.github.io/about style="margin-left: 0.25em">About</a>
+        
+
+        
+            <button id="search-button"
+                    class="search-button"
+                    title="$SHORTCUT to open search">
+                <img src="https://Frankfurt-UAS-AI-Drone.github.io/icons/search.svg"
+                     alt="Search"
+                     class="search-icon">
+            </button>
+
+            <div id="searchModal"
+                 class="search-modal js"
+                 role="dialog"
+                 aria-labelledby="modalTitle">
+                <div id="modal-content">
+                    <h1 id="modalTitle" class="page-header">Search</h1>
+                    <div id="searchBar">
+                        <input id="searchInput"
+                               role="combobox"
+                               autocomplete="off"
+                               spellcheck="false"
+                               aria-expanded="false"
+                               aria-controls="results-container"
+                               placeholder="Search..." />
+                        <button id="clear-search" class="clear-button" title="Clear search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="results-container">
+                        <div id="results-info">
+                            <span id="zero_results" style="display: none;">No results</span>
+                            <span id="one_result" style="display: none;">1 result</span>
+                            <span id="many_results" style="display: none;">$NUMBER results</span>
+                        </div>
+                        <div id="results" role="listbox"></div>
+                    </div>
+                </div>
+            </div>
+        
+
+        
+            <a id="dark-mode-toggle"
+               onclick="toggleTheme(); event.preventDefault();"
+               href="#">
+                <img src="https://Frankfurt-UAS-AI-Drone.github.io/icons/sun.svg"
+                     id="sun-icon"
+                     style="filter: invert(1)"
+                     alt="Light" />
+                <img src=https://Frankfurt-UAS-AI-Drone.github.io/icons/moon.svg id="moon-icon" alt="Dark" />
+            </a>
+
+            <!-- Inititialize the theme toggle icons -->
+            <script>updateItemToggleTheme()</script>
+        
+    </nav>
+</header>
+
+
+            
+            
+    
+    <main>
+        <article>
+            <div class="title">
+                
+                
+    <div class="page-header">
+        1_Hardware<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2025-05-15</time>
+                    
+
+                    
+
+                    
+
+                    :: 1822 Words
+
+                    
+                    
+
+                    
+                    
+
+                    
+
+                </div>
+            </div>
+
+            
+
+            
+            
+
+            <section class="body">
+                <p>This section details the hardware setup utilized in our project. It covers the selected components, their specifications, interconnections, and the rationale behind each design choice to ensure optimal performance and compatibility.</p>
+<p>Due to current German aviation regulations, our drone must not exceed a total weight of 250 grams. This threshold allows operation without formal registration or special permits, significantly simplifying compliance while still enabling a fully functional and capable system within strict weight constraints.</p>
+<h1 id="hardware-components">Hardware Components</h1>
+<ul>
+<li>
+<p>Frame: <code>Volador II VX5 FPV Freestyle T700 Frame Kit-Black</code></p>
+<ul>
+<li>The frame serves as the structural foundation of the drone, providing mounting points for all essential components such as motors, flight controller, battery, and sensors. It must be both lightweight and durable to meet the strict 250 g weight limit while ensuring mechanical stability during flight.</li>
+<li>In our case, we use a 5-inch (5 Zoll) frame with a total weight of 177.4 g, which offers a good balance between size, stability, and compatibility with standard components. The frame costs around 77€, making it a solid mid-range option in terms of both performance and price.</li>
+</ul>
+</li>
+<li>
+<p>Propellers: <code>Hurricane 51477-3 Clear Blue PC 2L2R</code></p>
+<ul>
+<li>The propellers are a critical component for generating lift and ensuring stable flight dynamics. We use 5-inch (5 Zoll) tri-blade propellers, which offer a good compromise between thrust, efficiency, and responsiveness.</li>
+<li>In our case, each propeller weighs 4.1g, contributing minimally to the overall weight budget, and costs only 3€, making it a lightweight and economical component.</li>
+</ul>
+</li>
+<li>
+<p>Propeller motors: <code>4x XING E-Pro 2306 2450kv</code></p>
+<ul>
+<li>Propeller motors are responsible for driving the propellers and generating the thrust required for lift and maneuvering.</li>
+<li>Each motor weighs 33.6g, resulting in a total motor weight of 134.4g, and is priced at approximately 22€, offering a reasonable balance between performance and cost.</li>
+</ul>
+</li>
+<li>
+<p>Flight controller: <code>SPEEDYBEE F4-40A-AIO</code></p>
+<ul>
+<li>We use the SPEEDYBEE F4-40A AIO (All-In-One) flight controller to manage all aspects of the drone’s flight. It integrates the flight control unit and a 40A electronic speed controller (ESC) into a single board, reducing weight and simplifying wiring.</li>
+<li>The board weighs only 13.6g, making it a highly efficient choice for lightweight drones, and is priced at approximately 70€, reflecting its advanced functionality and compact design.</li>
+</ul>
+</li>
+<li>
+<p>Video transmitter: <code>SpeedyBee TX800 FPV VTX</code></p>
+<ul>
+<li>We use the transmitter to send the live video feed from the drone’s camera to the pilot’s goggles.</li>
+<li>The used transmitter has a weight of only 5.6 g, making it an ideal fit for our weight requirements, and is priced at approximately 44€, offering a good balance between size, weight, and functionality.</li>
+</ul>
+</li>
+<li>
+<p>Camera:</p>
+<ul>
+<li><code>Caddx Ratel PRO MN01 - 4000B</code></li>
+<li><code>Raspberry Pi Camera: RB-Camera_JT-V2-120</code>
+<ul>
+<li>We use these two cameras in our project. The first camera is dedicated to capturing and transmitting live video feed to the pilot’s goggles, while the second camera is used exclusively for the AI application running on the Raspberry Pi.</li>
+<li>The Caddx Ratel PRO MN01 – 4000B weighs approximately 9.5g and is priced at around 55€, while the Raspberry Pi Camera RB-Camera_JT-V2-120 weighs about 4g and costs approximately 20€, making both suitable options depending on the desired trade-off between image quality, weight, and budget.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>GPS modul: <code>HGLRC M100-5883</code></p>
+<ul>
+<li>We have integrated a GPS module into the system, intended to support the AI application. This enables autonomous flight capabilities, allowing the drone to navigate from point A to point B without manual control.</li>
+<li>The GPS module weighs 7.7g and is priced at approximately 20€, offering a compact and cost-effective solution for reliable positioning and navigation.</li>
+</ul>
+</li>
+<li>
+<p>Single board computer: <code>Raspberry Pi Zero 2 W</code></p>
+<ul>
+<li>The single board computer is used as the computing platform for our AI application. Details about its role and the software implementation will be explained further in the software section of this documentation.</li>
+<li>The single board computer has a weight of 10g and costs around 20€.</li>
+</ul>
+</li>
+<li>
+<p>AI accelerator: <code>Coral Google Edge TPU USB accelerator</code></p>
+<ul>
+<li>To accelerate the AI application, we use the Coral Google Edge TPU machine learning accelerator, which significantly boosts inference speed and efficiency.</li>
+<li>The accelerator weighs approximately 90g and costs around 60€, providing a powerful yet portable solution for edge AI processing tasks.</li>
+</ul>
+</li>
+<li>
+<p>Storage: <code>Samsung microSDHC EVO+ MB-MC32GA/EU</code></p>
+<ul>
+<li>The SD card has 32GB of storage available and costs around 10 - 20€, depending where you buy it.</li>
+</ul>
+</li>
+<li>
+<p>Batteries:</p>
+<ul>
+<li>heavy: <code>R-LINE Tattu 95C - 750mAh</code></li>
+<li>light: <code>Gaoneng LiPo Akku 4S 650mAh 15.2V</code>
+<ul>
+<li>Both batteries can be used interchangeably to power either the drone or the controller.</li>
+<li>The R-LINE Tattu 95C 750mAh battery has a net weight of approximately 82g (±10) and costs around 21€, while the Gaoneng LiPo Akku 4S 650mAh 15.2V battery weighs around 70g (±3) and costs approximately 19€.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Remote controller: <code>Radiomaster Boxer ELRS GRYM2</code></p>
+<ul>
+<li>The Radiomaster Boxer ELRS GRYM2 is used to control the drone during flight. It sends commands to the flight controller via the ExpressLRS protocol, enabling precise and reliable manual operation.</li>
+</ul>
+</li>
+<li>
+<p>Goggles: <code>FATSHARK ECHO FPV Video Headset - Part Number: FSV1131-04</code></p>
+<ul>
+<li>We use the Fatshark Echo goggles to receive the live video feed transmitted from the drone’s onboard camera.</li>
+</ul>
+</li>
+<li>
+<p>Charger: <code>SKYRC S100 neo AC/DC Smart Balance Charger</code></p>
+<ul>
+<li>The charger is used to power all the necessary batteries for our setup, or example, those used in the drone itself as well as the controller.</li>
+</ul>
+</li>
+<li>
+<p>Smoke Stopper: <code>TBS Smoke Stopper</code></p>
+<ul>
+<li>To protect our electronic components during initial power-up and testing, we used the TBS Smoke Stopper. This device acts as an in-line fuse and current limiter, helping to prevent damage caused by short circuits or wiring mistakes.</li>
+</ul>
+</li>
+</ul>
+<p>This results in a current total drone weight of approximately <code>608,9g</code>. The overall cost of the components is at around <code>431€</code>.</p>
+<h1 id="drone-construction-overview">Drone Construction Overview</h1>
+<ul>
+<li>
+<p>Propeller Motors:</p>
+<ul>
+<li>
+<p>To connect the propeller motors to the flight controller, the propeller motors wires were soldered directly to the flight controller. The has specific solder pads for this purpose, making it easy to attach the motor wires directly to the board. The motor mapping - defining which motor corresponds to which output - an be configured either in Betaflight or conveniently through the SpeedyBee app on a smartphone. In addition to the motors, it was also necessary to solder a power cable and a capacitor to the flight controller. Both components share the same solder pads, so they had to be carefully connected to ensure proper power delivery.</p>
+</li>
+<li>
+<p><img src="/images/propellerMotorsSolderingPlan.jpg" alt="propeller motors soldering plan" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Video Transmitter:</p>
+<ul>
+<li>
+<p>To connect the video transmitter to the flight controller, four cables were used: black, red, white, and yellow.</p>
+<ul>
+<li>The black cable connects the GND pad on the video transmitter to a GND pad on the flight controller, ensuring a common ground.</li>
+<li>The red cable supplies power by connecting the 5V output on the flight controller to the 5V input on the video transmitter. This means the flight controller also functions as a power supply for the VTX, eliminating the need for a separate power source.</li>
+<li>The white cable connects the IRC pad (for control commands) on the video transmitter to the T3 pad on the flight controller. This allows the flight controller to send configuration commands to the VTX, such as changing channels or power levels.</li>
+<li>The yellow cable connects the VTX pad on the flight controller to the video input pad on the video transmitter. This carries the video signal from the onboard camera, which is then transmitted to the FPV goggles.</li>
+</ul>
+</li>
+<li>
+<p><img src="/images/flightControllerVideoTransmitterSolderingPlan.jpg" alt="flight controller and video transmitter soldering plan" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Camera <code>Caddx Ratel PRO MN01 - 4000B</code>:</p>
+<ul>
+<li>
+<p>To connect the camera to the flight controller, we used an extension board that simplifies and improves the soldering process. The 5V pad from the flight controller is connected to the V_IN pad on the extension board, while the GND pad on the flight controller is connected to the GND pad on the extension board. This setup ensures a reliable power and ground connection between the two components. Afterwards, the GND and power cable are connected to the corresponding pads on the extension board, while the remaining signal cables are soldered directly to the flight controller.</p>
+</li>
+<li>
+<p><img src="/images/ExtensionBoardSolderingPlan.png" alt="Extension Board soldering plan" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>ELRS Receiver:</p>
+<ul>
+<li>
+<p>To connect the ELRS receiver to the flight controller, the following cable connections are required:</p>
+<ul>
+<li>The black cable is soldered to the GND pads on both the receiver and the flight controller to establish a common ground.</li>
+<li>The red cable connects the VCC pad on the receiver to the 5V pad on the flight controller, supplying power to the receiver.</li>
+<li>The white cable is soldered from the TX pad on the receiver to the R6 pad on the flight controller, allowing data transmission from the receiver to the controller.</li>
+<li>The yellow cable connects the RX pad on the receiver to the T6 pad on the flight controller, enabling data transmission from the controller to the receiver.</li>
+</ul>
+</li>
+<li>
+<p><img src="/images/ELRSReceiverSolderingPlan.png" alt="ELRS receiver soldering plan" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>GPS Modul:</p>
+<ul>
+<li>
+<p>To connect the GPS module to the flight controller and ensure proper functionality, the following cable connections are required:</p>
+<ul>
+<li>The black cable is soldered to the GND pads on both the receiver and the flight controller to establish a common ground.</li>
+<li>The red cable connects the VCC pad on the receiver to the 5V pad on the flight controller, supplying power to the receiver.</li>
+<li>The yellow cable connects the TX pad on the GPS module to the R5 pad on the flight controller, allowing data to be sent from the GPS to the controller.</li>
+<li>The white cable connects the RX pad on the GPS module to the T5 pad on the flight controller, enabling the controller to send data back to the GPS module.</li>
+<li>The green cable connects the SCL pads on both devices, establishing the clock line for I2C communication.</li>
+<li>The blue cable connects the SDA pads on both devices, providing the data line for I2C communication.</li>
+</ul>
+</li>
+<li>
+<p><img src="/images/GPSModulSolderingPlan.jpg" alt="GPS modul soldering plan" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Connection for the Raspberry Pi:</p>
+<ul>
+<li>To ensure proper power supply to the Raspberry Pi, two cables—one for ground (GND) and one for power—must be soldered to the flight controller. These connections can optionally be made using the extension board to simplify the soldering process.
+Additionally, it is possible to solder extra cables to enable GPIO communication between the Raspberry Pi and the flight controller. This GPIO traffic can include various types of data, such as telemetry, control signals, or sensor input. If soldering is not feasible—for example, due to space constraints or hardware limitations—Bluetooth Low Energy (BLE) or a direct USB connection can serve as alternative communication methods.</li>
+<li>On the Raspberry Pi side, the following GPIO pins are used:
+<ul>
+<li>Pin 4 provides the power supply (5V),</li>
+<li>Pin 6 serves as GND,</li>
+<li>Pin 8 is the RX pin and should be connected to the TX pad on the flight controller,</li>
+<li>Pin 10 is the TX pin and should be connected to the RX pad on the flight controller.</li>
+</ul>
+</li>
+</ul>
+<p>This setup enables both power delivery and bidirectional communication between the Raspberry Pi and the flight controller.</p>
+</li>
+</ul>
+
+            </section>
+        </article>
+    </main>
+
+
+
+            
+                
+            
+
+            
+        </div>
+    </body>
+
+</html>
