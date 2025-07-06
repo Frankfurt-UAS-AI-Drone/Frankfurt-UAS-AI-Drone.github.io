@@ -5,19 +5,19 @@ date = "2025-07-03"
 +++
 
 # Overview
-The main goal of the project was enabling the drone to follow an object (i.e. a banana). For this **object detection** (with a targeting logic) and a way to **send commands** from the Raspberry Pi to the flight controller (FC). </br>
-A side goal was implementing a way to start the auto pilot via the remote control (RC). To achieve this, a way to **receive telemetry** from the FC is required. 
+The main goal of the project was, to enable the drone to follow an object (i.e. a banana). For this **object detection** (with a targeting logic) and a way to **send commands** from the Raspberry Pi to the flight controller (FC). </br>
+A side goal was implementing a way to start the autopilot via the remote control (RC). To achieve this, a way to **receive telemetry** from the FC is required. 
 
-We were not able to enable the drone to follow an object. The autopilot therefore remains _empty_. It simply increases the pitch and throttle, upon being activated. 
+We were not able to enable the drone to follow an object. The autopilot therefore, remains _empty_. It simply increases the pitch and throttle upon activation. 
 
 ## Repos (sources)
-Parts of this work were based on existing code bases. ["autopilot_bee_ept"](https://github.com/under0tech/autopilot_bee_ept) and ["YAMSPy"](https://github.com/thecognifly/YAMSPy) are used for the communication with the flight controller, via the ["MulitWii Serial Protocol (MSP)"](https://betaflight.com/docs/development/API/MSP-Extensions). ["reefwing"](https://gist.github.com/reefwing/e9ba13aed51e83cb7245bb4e55b84dea) provides an overview of various MSP codes, that can be used to get telemetry from the FC and to send commands to it. </br>
+Parts of this work were based on existing code bases. ["autopilot_bee_ept"](https://github.com/under0tech/autopilot_bee_ept) and ["YAMSPy"](https://github.com/thecognifly/YAMSPy) are used for the communication with the flight controller, via the ["MulitWii Serial Protocol (MSP)"](https://betaflight.com/docs/development/API/MSP-Extensions). ["reefwing"](https://gist.github.com/reefwing/e9ba13aed51e83cb7245bb4e55b84dea) provides an overview of various MSP codes that can be used to get telemetry from the FC and to send commands to it. </br>
 
 # The Code
-This section provides an overview over interesting sections of the code and some explanations if necessary.
+This section provides an overview of interesting sections of the code and some explanations if necessary.
 
 ## main
-At the core of the application lies a control loop, that polls the FC for the status of the RC. Upon a state change in _AUX 3_ the `inference` component is triggered to run basic object detection either on a still or on a video (implemented as a stream). Upon a state change in _AUX 4_, the empty autopilot is triggered. Going forward the autopilot is supposed to be based on a targeting mechanism to.
+At the core of the application lies a control loop that polls the FC for the status of the RC. Upon a state change in _AUX 3_, the `inference` component is triggered to run basic object detection either on a still or on a video (implemented as a stream). Upon a state change in _AUX 4_, the empty autopilot is triggered. Going forward, the autopilot is supposed to be based on a targeting mechanism.
 
 The `inference` component handles the communication with the camera and the Coral TPU. FC communication is enabled through the functions in the `msp` component.
 
@@ -63,10 +63,10 @@ The `inference` component handles the communication with the camera and the Cora
 ```
 
 ## inference
-To enable communication with the camera and the Coral TPU, the `InferenceController` class is implemented, with the following methods:
+To enable communication with the camera and the Coral TPU, the `InferenceController` class is implemented, with the following methods.
 
 ### __init__(self)
-`__init__` initializes the controller with two different [models](https://coral.ai/models/all/). `effdet_lite3` (512x512 / 107.6 ms) for stills and `ssd_mobnet2_tf2` (300x300 / 7.6 ms) for streams. The reason for using two different models, is performance. While the former model offers a higher accuracy, it is not usable for videos as it only manages around 3 FPS in all calculations. The latter model musters a 10 FPS stream, which is usable. None of these models are really useful in production. For good production performance, it is necessary to train a purpose-specific model. 
+`__init__` initializes the controller with two different models[(links in repo)](https://github.com/Frankfurt-UAS-AI-Drone/AI-Drone). `effdet_lite3` (512x512 / 107.6 ms) for stills and `ssd_mobnet2_tf2` (300x300 / 7.6 ms) for streams. The reason for using two different models is performance. While the former model offers a higher accuracy, it is not usable for videos as it only manages around 3 FPS in all calculations. The latter model musters a 10 FPS stream, which is usable. None of these models are useful in production. For good production performance, it is necessary to train a purpose-specific model. 
 
 ```python
 self.still_interpreter = make_interpreter("models/effdet_lite3/effdet_lite3.tflite")
@@ -80,7 +80,7 @@ self.video_size = common.input_size(self.video_interpreter)
 self.video_labels = read_label_file("models/ssd_mobnet2/ssd_mobnet2_tf2.labels")
 ```
 
-The camera is configured to use `RGB888` because this is the configuration required by the models. By default `Picamera2` includes an alpha channel, which would require every frame to be resized, costing performance.
+The camera is configured to use `RGB888` because this is the configuration required by the models. By default, `Picamera2` includes an alpha channel, which would require every frame to be resized, costing performance.
 
 ```python
 self.video_config = self.camera.create_video_configuration(main= {"size": self.video_size, 'format': 'RGB888'}, controls={"FrameRate": self.recording_fps})
@@ -111,9 +111,9 @@ This function is very straight forward. The onlything noteworthy is the line bel
 ```
 
 ### stream_and_infer_video(self)
-A multi threaded model is used for video inference. When AUX 3 is set to record a video on the RC, a new thread is started to record the video. The video is implemented as a stream of images, not as a video itself. This implementation only manages 10 FPS. However it is in realtime, which could be useful, when building functionalities on top of it. 
+A multi-threaded model is used for video inference. When AUX 3 is set to record a video on the RC, a new thread is started to record the video. The video is implemented as a stream of images, not as a video itself. This implementation only manages 10 FPS. However, it is in real-time, which could be useful when building functionalities on top of it. 
 
-When AUX 3 is switched away from recording mode, the stop event is set and the controller stops recording. Upon ending the recording, it is very important to execute `out.release()` otherwise the resulting video file will be corrupted.
+When AUX 3 is switched away from recording mode, the stop event is set, and the controller stops recording. Upon ending the recording, it is very important to execute `out.release()` otherwise, the resulting video file will be corrupted.
 
 ```python
 def stream_and_infer_video(self):
@@ -134,7 +134,7 @@ def stream_and_infer_video(self):
 ```
 
 ## autopilot
-Because the autopilot is empty, the `AutopilotController` class only contains a limited amount of functionality. `init` initializes the values that are necessary for overriding the rc.
+Because the autopilot is empty, the `AutopilotController` class only contains a limited amount of functionality. `init` initializes the values that are necessary for overriding the RC.
 
 ### override_rc()
 This method is a wrapper for the `send_msp_command` and is used to execute MSP_SET_RAW_RC. This only works for the channels that have been enabled by the `set msp_override_channels_mask` command in the FC.
@@ -156,7 +156,7 @@ def override_rc(roll, pitch, throttle, yaw, aux1, aux2, aux3, aux4):
     return True
 ```
 ### Flying
-Currently the flying functionality consists of two methods: `prepare()` and `go_forward()`. Both of them wrap override_rc, and simply implement, that the autopilot flies forward. It is important, that the switch that triggers these methods also enables the MSP_OVERRIDE mode in the flight controller.
+Currently, the flying functionality consists of two methods: `prepare()` and `go_forward()`. Both of them wrap override_rc, and simply implement that the autopilot flies forward. It is important that the switch that triggers these methods also enables the MSP_OVERRIDE mode in the flight controller.
 
 ```python
 def go_forward():
@@ -170,7 +170,7 @@ def go_forward():
 ```
 
 ## msp
-The `Command` enum contains the necessary command IDs for the implemented functionalities. `send_msp_request` is used to send telemetry requests and `send_msp_command` is used to send instructions to the FC. The main difference is that the latter allows for a payload that contains the instructions. This is used to send RC values to the flight controller, to control it from the Pi.
+The `Command` enum contains the necessary command IDs for the implemented functionalities. `send_msp_request` is used to send telemetry requests, and `send_msp_command` is used to send instructions to the FC. The main difference is that the latter allows for a payload that contains the instructions. This is used to send RC values to the flight controller, to control it from the Pi.
 
 ```python
 def send_msp_command(serial_port, msp_command_id, data):
@@ -186,7 +186,7 @@ def send_msp_command(serial_port, msp_command_id, data):
     serial_port.write(msp_package)
 ```
 
-`read_msp_response` is used to deconstruct the response of the FC, so its payload can be processed with the command specific functions (e.g. `process_MSP_STATUS`). With the help of `readbytes` these functions turn the response into a format, that is readable by humans.
+`read_msp_response` is used to deconstruct the response of the FC, so its payload can be processed with the command-specific functions (e.g. `process_MSP_STATUS`). With the help of `readbytes`, these functions turn the response into a format that is readable by humans.
 
 ```python
 def process_MSP_STATUS(data):
