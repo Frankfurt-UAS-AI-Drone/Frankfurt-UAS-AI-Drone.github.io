@@ -117,20 +117,20 @@ When AUX 3 is switched away from recording mode, the stop event is set, and the 
 
 ```python
 def stream_and_infer_video(self):
-        self.stop_event.clear()
-        self.camera.switch_mode(self.video_config)
-        out = cv2.VideoWriter(f"/home/pi/drone/videos/{datetime.today().strftime('%Y-%m-%d_%H-%M-%S')}.avi", cv2.VideoWriter_fourcc(*'XVID'), self.playback_fps, self.video_size)
+    self.stop_event.clear()
+    self.camera.switch_mode(self.video_config)
+    out = cv2.VideoWriter(f"/home/pi/drone/videos/{datetime.today().strftime('%Y-%m-%d_%H-%M-%S')}.avi", cv2.VideoWriter_fourcc(*'XVID'), self.playback_fps, self.video_size)
 
-        try: 
-            while not self.stop_event.is_set():
-                recorded_frame = self.camera.capture_array()
-                processed_frame = self.process_frame(recorded_frame, video=True)
-                out.write(processed_frame)
-        except Exception as e:
-            print(f"Recording error: {e}")
-        finally:
-            print("Exiting...")
-            out.release()
+    try: 
+        while not self.stop_event.is_set():
+            recorded_frame = self.camera.capture_array()
+            processed_frame = self.process_frame(recorded_frame, video=True)
+            out.write(processed_frame)
+    except Exception as e:
+        print(f"Recording error: {e}")
+    finally:
+        print("Exiting...")
+        out.release()
 ```
 
 ## autopilot
